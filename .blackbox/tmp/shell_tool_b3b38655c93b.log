@@ -1,0 +1,76 @@
+
+> influencer-trust-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 21:24:01 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T20:24:02.046Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T20:24:02.046Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T20:24:02.046Z"}
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:114:20)
+    at Object.nodeDevHook [as .js] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:68
+    at async /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:20
+[ERROR] 21:24:02 Error: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+[INFO] 21:34:58 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T20:34:58.896Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T20:34:58.897Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T20:34:58.897Z"}
+[INFO] 21:36:04 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:75:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:114:20)
+[ERROR] 21:36:04 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 21:36:51 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T20:36:51.513Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T20:36:51.513Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T20:36:51.513Z"}
+[INFO] 21:37:37 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/config/index.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:75:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:114:20)
+[ERROR] 21:37:37 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 22:06:56 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:83:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:114:20)
+[ERROR] 22:06:56 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 22:07:04 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:84:5)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-6066152508762237.js:114:20)
+[ERROR] 22:07:05 Error: listen EADDRINUSE: address already in use :::3000

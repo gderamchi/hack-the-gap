@@ -53,4 +53,7 @@ export type RootStackParamList = {
   Ranking: undefined;
   Detail: { influencerId: string };
   Search: undefined;
+  Login: undefined;
+  Signup: undefined;
+  Profile: undefined;
 };

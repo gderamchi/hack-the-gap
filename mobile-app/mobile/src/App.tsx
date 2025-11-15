@@ -5,10 +5,14 @@ import { PaperProvider } from 'react-native-paper';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { RootStackParamList } from './types';
-import { RankingScreen } from './screens/RankingScreen';
-import { DetailScreen } from './screens/DetailScreen';
+import { DashboardScreen } from './screens/DashboardScreen';
+import { CompleteDetailScreen } from './screens/CompleteDetailScreen';
 import { SearchScreen } from './screens/SearchScreen';
+import { LoginScreen } from './screens/LoginScreen';
+import { SignupScreen } from './screens/SignupScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
 import { lightTheme } from './constants/theme';
+import { SimpleAuthProvider } from './contexts/SimpleAuthContext';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const queryClient = new QueryClient({
@@ -23,21 +27,26 @@ const queryClient = new QueryClient({
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <PaperProvider theme={lightTheme}>
-        <NavigationContainer>
-          <StatusBar style="auto" />
-          <Stack.Navigator
-            initialRouteName="Ranking"
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="Ranking" component={RankingScreen} />
-            <Stack.Screen name="Detail" component={DetailScreen} />
-            <Stack.Screen name="Search" component={SearchScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PaperProvider>
+      <SimpleAuthProvider>
+        <PaperProvider theme={lightTheme}>
+          <NavigationContainer>
+            <StatusBar style="auto" />
+            <Stack.Navigator
+              initialRouteName="Ranking"
+              screenOptions={{
+                headerShown: false,
+              }}
+            >
+              <Stack.Screen name="Ranking" component={DashboardScreen} />
+              <Stack.Screen name="Detail" component={CompleteDetailScreen} />
+              <Stack.Screen name="Search" component={SearchScreen} />
+              <Stack.Screen name="Login" component={LoginScreen} />
+              <Stack.Screen name="Signup" component={SignupScreen} />
+              <Stack.Screen name="Profile" component={ProfileScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PaperProvider>
+      </SimpleAuthProvider>
     </QueryClientProvider>
   );
 }

@@ -243,27 +243,3 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
 });
-ptyText: {
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  emptySubtext: {
-    opacity: 0.7,
-    textAlign: 'center',
-  },
-  fab: {
-    position: 'absolute',
-    right: 16,
-    bottom: 80,
-  },
-  footer: {
-    padding: 12,
-    backgroundColor: '#fff',
-    borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
-  },
-  footerText: {
-    textAlign: 'center',
-    opacity: 0.7,
-  },
-});

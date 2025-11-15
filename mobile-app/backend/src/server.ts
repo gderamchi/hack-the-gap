@@ -5,12 +5,20 @@ import rateLimit from 'express-rate-limit';
 import { config } from './config';
 import logger from './utils/logger';
 import influencerRoutes from './routes/influencer.routes';
+import publicRoutes from './routes/public.routes';
 
 const app = express();
 
 // Security middleware
 app.use(helmet());
-app.use(cors());
+
+// CORS - Allow all origins for public API (your website team can access)
+app.use(cors({
+  origin: '*', // Allow all origins for public API
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+}));
 
 // Body parsing middleware
 app.use(express.json());
@@ -48,6 +56,7 @@ app.get('/api/health', (req: Request, res: Response) => {
 
 // API routes
 app.use('/api/influencers', influencerRoutes);
+app.use('/api/public', publicRoutes); // Public API for website team
 
 // 404 handler
 app.use((req: Request, res: Response) => {

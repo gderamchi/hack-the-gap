@@ -10,6 +10,16 @@ export const config = {
     url: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/influencer_trust',
   },
   
+  // Using FREE Blackbox AI with Perplexity Sonar Pro model!
+  blackbox: {
+    apiKey: process.env.BLACKBOX_API_KEY || '',
+    apiUrl: process.env.BLACKBOX_API_URL || 'https://api.blackbox.ai/v1/chat/completions',
+    model: 'blackboxai/perplexity/sonar-pro', // Perplexity via Blackbox - FREE!
+    maxConcurrent: 5,
+    rateLimitMs: 200,
+  },
+  
+  // Legacy Perplexity config (kept for reference)
   perplexity: {
     apiKey: process.env.PERPLEXITY_API_KEY || '',
     apiUrl: 'https://api.perplexity.ai/chat/completions',

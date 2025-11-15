@@ -12,6 +12,8 @@ datasource db {
 model Influencer {
   id              String   @id @default(uuid())
   name            String   @unique
+  imageUrl        String?  // Profile image URL
+  summary         String?  // AI-generated summary
   socialHandles   String?  // JSON string: {twitter, instagram, youtube, tiktok}
   niche           String?  // gaming, beauty, lifestyle, tech, comedy, etc.
   trustScore      Float    @default(50.0)
@@ -23,8 +25,11 @@ model Influencer {
   lastUpdated     DateTime @updatedAt
   createdAt       DateTime @default(now())
   
-  mentions        Mention[]
-  history         AnalysisHistory[]
+  mentions              Mention[]
+  history               AnalysisHistory[]
+  communitySignals      CommunitySignal[]
+  communityTrustScore   CommunityTrustScore?
+  deepSearchAnalyses    DeepSearchAnalysis[]
 
   @@index([trustScore])
   @@index([name])
@@ -59,4 +64,179 @@ model AnalysisHistory {
 
   @@index([influencerId])
   @@index([analyzedAt])
+}
+
+// ============================================
+// USER MANAGEMENT
+// ============================================
+
+model User {
+  id            String      @id @default(uuid())
+  email         String      @unique
+  passwordHash  String
+  role          String      @default("COMMUNITY")  // COMMUNITY, PROFESSIONAL, ADMIN
+  status        String      @default("ACTIVE")     // ACTIVE, SUSPENDED, DELETED
+  
+  firstName     String?
+  lastName      String?
+  company       String?
+  avatar        String?
+  
+  subscriptionTier    String?
+  subscriptionStatus  String?
+  subscriptionExpiry  DateTime?
+  
+  createdAt     DateTime    @default(now())
+  lastLoginAt   DateTime?
+  emailVerified Boolean     @default(false)
+  
+  communitySignals  CommunitySignal[]
+  deepSearchOrders  DeepSearchOrder[]
+  payments          Payment[]
+  firstBuyerOf      DeepSearchAnalysis[] @relation("FirstBuyer")
+  
+  @@index([email])
+  @@index([role])
+}
+
+// ============================================
+// COMMUNITY FEATURES
+// ============================================
+
+model CommunitySignal {
+  id            String      @id @default(uuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  influencerId  String
+  influencer    Influencer  @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  
+  type          String      // RATING, DRAMA_REPORT, POSITIVE_ACTION, COMMENT
+  rating        Int?
+  comment       String?
+  tags          String?
+  
+  isVerified    Boolean     @default(false)
+  verifiedAt    DateTime?
+  
+  isHidden      Boolean     @default(false)
+  hiddenReason  String?
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  @@index([influencerId])
+  @@index([userId])
+  @@index([type])
+  @@index([createdAt])
+}
+
+model CommunityTrustScore {
+  id                String      @id @default(uuid())
+  influencerId      String      @unique
+  influencer        Influencer  @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  
+  avgRating         Float       @default(0.0)
+  totalRatings      Int         @default(0)
+  totalDramaReports Int         @default(0)
+  totalPositiveReports Int      @default(0)
+  totalComments     Int         @default(0)
+  
+  communityScore    Float       @default(50.0)
+  combinedScore     Float       @default(50.0)
+  
+  lastUpdated       DateTime    @updatedAt
+  
+  @@index([communityScore])
+  @@index([combinedScore])
+}
+
+// ============================================
+// DEEPSEARCH ANALYSIS
+// ============================================
+
+model DeepSearchAnalysis {
+  id            String            @id @default(uuid())
+  influencerId  String
+  influencer    Influencer        @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  
+  status        String            @default("PENDING")  // PENDING, PROCESSING, COMPLETED, FAILED, REFUNDED
+  analysisData  String?
+  
+  queriesRun    Int               @default(0)
+  sourcesAnalyzed Int             @default(0)
+  processingTimeMs Int?
+  
+  isPublic      Boolean           @default(false)
+  firstBuyerId  String?
+  firstBuyerUser User?            @relation("FirstBuyer", fields: [firstBuyerId], references: [id])
+  unlockedAt    DateTime?
+  
+  basePrice     Float             @default(99.99)
+  
+  createdAt     DateTime          @default(now())
+  completedAt   DateTime?
+  
+  orders        DeepSearchOrder[]
+  
+  @@index([influencerId])
+  @@index([status])
+  @@index([isPublic])
+}
+
+// ============================================
+// PAYMENT & ORDERS
+// ============================================
+
+model DeepSearchOrder {
+  id                String              @id @default(uuid())
+  
+  userId            String
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  deepSearchId      String
+  deepSearch        DeepSearchAnalysis  @relation(fields: [deepSearchId], references: [id], onDelete: Cascade)
+  
+  status            String              @default("PENDING")  // PENDING, PAID, FAILED, REFUNDED, CANCELLED
+  
+  amount            Float
+  currency          String              @default("EUR")
+  platformFee       Float
+  
+  isFirstBuyer      Boolean             @default(false)
+  wasFree           Boolean             @default(false)
+  
+  createdAt         DateTime            @default(now())
+  paidAt            DateTime?
+  
+  payment           Payment?
+  
+  @@index([userId])
+  @@index([deepSearchId])
+  @@index([status])
+}
+
+model Payment {
+  id                String          @id @default(uuid())
+  
+  orderId           String          @unique
+  order             DeepSearchOrder @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  userId            String
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  provider          String          // STRIPE, PAYPAL, MOCK
+  providerPaymentId String?
+  
+  amount            Float
+  currency          String          @default("EUR")
+  
+  status            String
+  metadata          String?
+  
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  
+  @@index([userId])
+  @@index([status])
 }

@@ -1,5 +1,5 @@
 import { PrismaClient, Influencer, Mention } from '@prisma/client';
-import perplexityService from './perplexity.service';
+import blackboxService from './blackbox.service'; // Using FREE Blackbox AI!
 import scoringService from './scoring.service';
 import logger from '../utils/logger';
 import { config } from '../config';
@@ -95,9 +95,9 @@ export class InfluencerService {
       };
     }
     
-    // Perform new research
+    // Perform new research using FREE Blackbox AI
     logger.info(`Performing new research for: ${name}`);
-    const researchResult = await perplexityService.researchInfluencer(name);
+    const researchResult = await blackboxService.researchInfluencer(name);
     
     logger.info(`Research completed: ${researchResult.mentions.length} mentions found`);
     logger.info(`Breakdown: ${researchResult.mentions.filter(m => m.label === 'drama').length} drama, ${researchResult.mentions.filter(m => m.label === 'good_action').length} good actions, ${researchResult.mentions.filter(m => m.label === 'neutral').length} neutral`);
