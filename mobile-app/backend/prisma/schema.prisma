@@ -1,0 +1,62 @@
+// Prisma schema for Influencer Trust Score Database
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Influencer {
+  id              String   @id @default(uuid())
+  name            String   @unique
+  socialHandles   String?  // JSON string: {twitter, instagram, youtube, tiktok}
+  niche           String?  // gaming, beauty, lifestyle, tech, comedy, etc.
+  trustScore      Float    @default(50.0)
+  dramaCount      Int      @default(0)
+  goodActionCount Int      @default(0)
+  neutralCount    Int      @default(0)
+  avgSentiment    Float    @default(0.0)
+  language        String   @default("fr")
+  lastUpdated     DateTime @updatedAt
+  createdAt       DateTime @default(now())
+  
+  mentions        Mention[]
+  history         AnalysisHistory[]
+
+  @@index([trustScore])
+  @@index([name])
+}
+
+model Mention {
+  id             String     @id @default(uuid())
+  influencerId   String
+  influencer     Influencer @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  source         String     // perplexity, news, youtube, twitter, reddit, forum
+  sourceUrl      String
+  textExcerpt    String
+  sentimentScore Float
+  label          String     // drama, good_action, neutral
+  scrapedAt      DateTime   @default(now())
+
+  @@index([influencerId])
+  @@index([label])
+  @@index([scrapedAt])
+}
+
+model AnalysisHistory {
+  id              String     @id @default(uuid())
+  influencerId    String
+  influencer      Influencer @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  trustScore      Float
+  dramaCount      Int
+  goodActionCount Int
+  neutralCount    Int
+  avgSentiment    Float
+  analyzedAt      DateTime   @default(now())
+
+  @@index([influencerId])
+  @@index([analyzedAt])
+}

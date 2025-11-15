@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Influencer Trust Score",
+    "slug": "influencer-trust",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.influencertrust.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.influencertrust.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "name": "Influencer Trust Score",
+      "shortName": "TrustScore",
+      "description": "Classement et analyse de confiance des influenceurs français",
+      "themeColor": "#3b82f6",
+      "backgroundColor": "#ffffff",
+      "display": "standalone",
+      "orientation": "portrait",
+      "startUrl": "/",
+      "scope": "/",
+      "lang": "fr",
+      "dir": "ltr"
+    },
+    "extra": {
+      "apiUrl": "http://localhost:3000/api"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#3b82f6" rx="80"/>
+  
+  <!-- Shield shape -->
+  <path d="M256 80 L400 140 L400 280 Q400 380 256 440 Q112 380 112 280 L112 140 Z" 
+        fill="#ffffff" opacity="0.95"/>
+  
+  <!-- Star icon (trust/rating symbol) -->
+  <path d="M256 180 L280 230 L335 238 L295 277 L305 332 L256 306 L207 332 L217 277 L177 238 L232 230 Z" 
+        fill="#3b82f6"/>
+  
+  <!-- Checkmark -->
+  <path d="M220 280 L245 305 L295 255" 
+        stroke="#10b981" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+</svg>
