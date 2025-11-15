@@ -78,17 +78,19 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-// Start server
-const PORT = config.port;
+// Start server (only if not in Vercel serverless environment)
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  const PORT = config.port;
 
-app.listen(PORT, () => {
-  logger.info(`🚀 Server running on port ${PORT}`);
-  logger.info(`📊 Environment: ${config.nodeEnv}`);
-  logger.info(`🔗 Health check: http://localhost:${PORT}/api/health`);
-  
-  if (!config.perplexity.apiKey) {
-    logger.warn('⚠️  Perplexity API key not configured!');
-  }
-});
+  app.listen(PORT, () => {
+    logger.info(`🚀 Server running on port ${PORT}`);
+    logger.info(`📊 Environment: ${config.nodeEnv}`);
+    logger.info(`🔗 Health check: http://localhost:${PORT}/api/health`);
+    
+    if (!config.perplexity.apiKey) {
+      logger.warn('⚠️  Perplexity API key not configured!');
+    }
+  });
+}
 
 export default app;
