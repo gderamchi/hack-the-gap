@@ -5,8 +5,8 @@ import { PaperProvider } from 'react-native-paper';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'expo-status-bar';
 import { RootStackParamList } from './types';
-import { DashboardScreen } from './screens/DashboardScreen';
-import { CompleteDetailScreen } from './screens/CompleteDetailScreen';
+import { CleanSimpleScreen } from './screens/CleanSimpleScreen';
+import { CleanDetailScreen } from './screens/CleanDetailScreen';
 import { SearchScreen } from './screens/SearchScreen';
 import { LoginScreen } from './screens/LoginScreen';
 import { SignupScreen } from './screens/SignupScreen';
@@ -37,8 +37,8 @@ export default function App() {
                 headerShown: false,
               }}
             >
-              <Stack.Screen name="Ranking" component={DashboardScreen} />
-              <Stack.Screen name="Detail" component={CompleteDetailScreen} />
+              <Stack.Screen name="Ranking" component={CleanSimpleScreen} />
+              <Stack.Screen name="Detail" component={CleanDetailScreen} />
               <Stack.Screen name="Search" component={SearchScreen} />
               <Stack.Screen name="Login" component={LoginScreen} />
               <Stack.Screen name="Signup" component={SignupScreen} />
