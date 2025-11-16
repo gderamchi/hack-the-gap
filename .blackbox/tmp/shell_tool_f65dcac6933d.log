@@ -195,3 +195,7 @@ Unknown field `communityTrustScore` for select statement on model `Influencer`. 
 [32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T15:23:49.778Z","userAgent":"curl/8.7.1"}
 [32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:27:37.245Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
 [32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:27:43.534Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:43:08.630Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:07.816Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:41.388Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:42.204Z","userAgent":"okhttp/4.12.0"}
