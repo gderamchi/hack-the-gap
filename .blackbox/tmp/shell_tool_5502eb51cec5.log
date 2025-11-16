@@ -1,0 +1,9 @@
+
+> influencer-trust-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 01:51:50 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T00:51:51.023Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T00:51:51.024Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T00:51:51.024Z"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T00:51:53.388Z","userAgent":"curl/8.7.1"}

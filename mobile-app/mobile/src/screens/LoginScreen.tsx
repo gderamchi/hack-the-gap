@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Platform, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
-import { useSimpleAuth } from '../contexts/SimpleAuthContext';
+import { useSupabaseAuth } from '../contexts/SupabaseAuthContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
 
@@ -10,20 +10,26 @@ export const LoginScreen: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signIn } = useSimpleAuth();
+  const { signIn } = useSupabaseAuth();
 
   const handleLogin = async () => {
-    if (!email.trim() || !password.trim()) {
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedPassword = password.trim();
+
+    if (!trimmedEmail || !trimmedPassword) {
       Alert.alert('Error', 'Please enter email and password');
       return;
     }
 
     setLoading(true);
     try {
-      await signIn(email.trim(), password);
+      console.log('🔐 Logging in with:', trimmedEmail);
+      await signIn(trimmedEmail, trimmedPassword);
+      console.log('✅ Login successful');
       navigation.navigate('Ranking');
     } catch (error: any) {
-      Alert.alert('Login Failed', error.message);
+      console.error('❌ Login error:', error);
+      Alert.alert('Login Failed', error.message || 'Invalid email or password');
     } finally {
       setLoading(false);
     }

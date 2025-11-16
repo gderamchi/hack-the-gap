@@ -4,7 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, Influencer } from '../types';
 import { influencerApi } from '../services/api';
-import { useSimpleAuth } from '../contexts/SimpleAuthContext';
+import { useSupabaseAuth } from '../contexts/SupabaseAuthContext';
+import { useLocalRatings } from '../hooks/useLocalRatings';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Ranking'>;
 
@@ -15,13 +16,13 @@ const getTrustColor = (score: number): string => {
   return '#ef4444';
 };
 
-const SimpleRow = ({ influencer, onPress, index }: any) => {
+const SimpleRow = React.memo(({ influencer, onPress, index, userRating }: any) => {
   const trustColor = getTrustColor(influencer.trustScore);
   const rank = index + 1;
   const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : null;
   
   return (
-    <TouchableOpacity style={styles.row} onPress={onPress}>
+    <TouchableOpacity style={styles.row} onPress={onPress} activeOpacity={0.7}>
       <Text style={styles.rank}>{medal || `#${rank}`}</Text>
       
       <Image
@@ -30,8 +31,13 @@ const SimpleRow = ({ influencer, onPress, index }: any) => {
       />
       
       <View style={styles.info}>
-        <Text style={styles.name}>{influencer.name}</Text>
-        <Text style={styles.niche}>{influencer.niche}</Text>
+        <Text style={styles.name} numberOfLines={1}>{influencer.name}</Text>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+          <Text style={styles.niche} numberOfLines={1}>{influencer.niche}</Text>
+          {userRating && (
+            <Text style={styles.userRating}>★ {userRating.rating}</Text>
+          )}
+        </View>
       </View>
       
       <View style={[styles.score, { backgroundColor: trustColor }]}>
@@ -39,10 +45,11 @@ const SimpleRow = ({ influencer, onPress, index }: any) => {
       </View>
     </TouchableOpacity>
   );
-};
+});
 
 export const CleanSimpleScreen: React.FC<Props> = ({ navigation }) => {
-  const { isAuthenticated } = useSimpleAuth();
+  const { isAuthenticated } = useSupabaseAuth();
+  const { getRating } = useLocalRatings();
   const [search, setSearch] = useState('');
   
   const { data: influencers, isLoading, refetch } = useQuery({
@@ -75,7 +82,7 @@ export const CleanSimpleScreen: React.FC<Props> = ({ navigation }) => {
         />
       </View>
       
-      {/* Simple List */}
+      {/* Optimized List */}
       <FlatList
         data={influencers}
         keyExtractor={(item) => item.id}
@@ -84,9 +91,19 @@ export const CleanSimpleScreen: React.FC<Props> = ({ navigation }) => {
             influencer={item}
             onPress={() => navigation.navigate('Detail', { influencerId: item.id })}
             index={index}
+            userRating={getRating(item.id)}
           />
         )}
         refreshControl={<RefreshControl refreshing={isLoading} onRefresh={refetch} />}
+        initialNumToRender={15}
+        maxToRenderPerBatch={10}
+        windowSize={5}
+        removeClippedSubviews={true}
+        getItemLayout={(data, index) => ({
+          length: 80,
+          offset: 80 * index,
+          index,
+        })}
       />
     </View>
   );
@@ -158,6 +175,11 @@ const styles = StyleSheet.create({
   niche: {
     fontSize: 14,
     color: '#666',
+  },
+  userRating: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#fbbf24',
   },
   score: {
     width: 50,

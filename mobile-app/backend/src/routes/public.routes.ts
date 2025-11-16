@@ -57,7 +57,6 @@ router.get('/influencers', async (req: Request, res: Response) => {
     if (search && search.trim().length > 0) {
       where.name = {
         contains: search.trim(),
-        mode: 'insensitive',
       };
     }
     
@@ -181,7 +180,6 @@ router.get('/influencers/slug/:name', async (req: Request, res: Response) => {
       where: {
         name: {
           equals: decodedName,
-          mode: 'insensitive',
         },
       },
       include: {
@@ -333,7 +331,6 @@ router.get('/search', async (req: Request, res: Response) => {
       where: {
         name: {
           contains: query.trim(),
-          mode: 'insensitive',
         },
       },
       orderBy: { trustScore: 'desc' },

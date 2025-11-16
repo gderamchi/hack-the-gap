@@ -6,6 +6,12 @@ import { config } from './config';
 import logger from './utils/logger';
 import influencerRoutes from './routes/influencer.routes';
 import publicRoutes from './routes/public.routes';
+import knowMoreRoutes from './routes/know-more.routes';
+import authRoutes from './routes/auth.routes';
+import communityRoutes from './routes/community.routes';
+import transparencyRoutes from './routes/transparency.routes';
+import engagementRoutes from './routes/engagement.routes';
+import verificationRoutes from './routes/verification.routes';
 
 const app = express();
 
@@ -55,7 +61,13 @@ app.get('/api/health', (req: Request, res: Response) => {
 });
 
 // API routes
+app.use('/api/auth', authRoutes); // Authentication
+app.use('/api/community', communityRoutes); // Community features
+app.use('/api/transparency', transparencyRoutes); // Transparency & Fairness
+app.use('/api/engagement', engagementRoutes); // Engagement & Gamification
+app.use('/api/verification', verificationRoutes); // AI Verification
 app.use('/api/influencers', influencerRoutes);
+app.use('/api/influencers', knowMoreRoutes); // Know More feature
 app.use('/api/public', publicRoutes); // Public API for website team
 
 // 404 handler

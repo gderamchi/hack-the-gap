@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, Influencer } from '../types';
 import { influencerApi } from '../services/api';
-import { useSimpleAuth } from '../contexts/SimpleAuthContext';
+import { useSupabaseAuth } from '../contexts/SimpleAuthContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Ranking'>;
 
@@ -74,7 +74,7 @@ const CompactRow = ({ influencer, onPress, index, sortMode }: any) => {
 };
 
 export const DashboardScreen: React.FC<Props> = ({ navigation }) => {
-  const { isAuthenticated } = useSimpleAuth();
+  const { isAuthenticated } = useSupabaseAuth();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [selectedSort, setSelectedSort] = useState('best');

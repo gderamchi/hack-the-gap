@@ -110,10 +110,10 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   );
 };
 
-export const useSimpleAuth = () => {
+export const useSupabaseAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useSimpleAuth must be used within SimpleAuthProvider');
+    throw new Error('useSupabaseAuth must be used within SimpleAuthProvider');
   }
   return context;
 };

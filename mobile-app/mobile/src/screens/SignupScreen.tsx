@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, TouchableOpacity, Text, KeyboardAvoidingView, Platform, Alert, ScrollView } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
-import { useSimpleAuth } from '../contexts/SimpleAuthContext';
+import { useSupabaseAuth } from '../contexts/SupabaseAuthContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Signup'>;
 
@@ -11,25 +11,40 @@ export const SignupScreen: React.FC<Props> = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signUp } = useSimpleAuth();
+  const { signUp } = useSupabaseAuth();
 
   const handleSignup = async () => {
-    if (!email.trim() || !password.trim()) {
+    const trimmedEmail = email.trim().toLowerCase();
+    const trimmedPassword = password.trim();
+
+    if (!trimmedEmail || !trimmedPassword) {
       Alert.alert('Error', 'Please enter email and password');
       return;
     }
 
-    if (password.length < 6) {
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail)) {
+      Alert.alert('Error', 'Please enter a valid email address');
+      return;
+    }
+
+    if (trimmedPassword.length < 6) {
       Alert.alert('Error', 'Password must be at least 6 characters');
       return;
     }
 
     setLoading(true);
     try {
-      await signUp(email.trim(), password, firstName.trim() || undefined);
+      console.log('📝 Signing up with:', trimmedEmail);
+      await signUp(trimmedEmail, trimmedPassword, {
+        firstName: firstName.trim() || undefined,
+      });
+      console.log('✅ Signup successful');
       navigation.navigate('Ranking');
     } catch (error: any) {
-      Alert.alert('Signup Failed', error.message);
+      console.error('❌ Signup error:', error);
+      Alert.alert('Signup Failed', error.message || 'Please try again');
     } finally {
       setLoading(false);
     }
@@ -155,6 +170,42 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: '#fff',
     letterSpacing: 1.5,
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 24,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#e5e7eb',
+  },
+  dividerText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#9ca3af',
+    marginHorizontal: 16,
+  },
+  googleButton: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: '#e5e7eb',
+    marginBottom: 24,
+  },
+  googleIcon: {
+    fontSize: 20,
+    marginRight: 12,
+  },
+  googleButtonText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
   },
   footer: {
     flexDirection: 'row',

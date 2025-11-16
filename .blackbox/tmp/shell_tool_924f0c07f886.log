@@ -1,0 +1,3 @@
+[eval].ts(9,26): error TS7006: Parameter 'name' implicitly has an 'any' type.
+[eval].ts(9,32): error TS7006: Parameter 'platform' implicitly has an 'any' type.
+

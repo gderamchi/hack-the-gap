@@ -4,6 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
 import { influencerApi } from '../services/api';
+import { BeautifulRating } from '../components/BeautifulRating';
+import { useLocalRatings } from '../hooks/useLocalRatings';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
 
@@ -16,11 +18,14 @@ const getTrustColor = (score: number): string => {
 
 export const CleanDetailScreen: React.FC<Props> = ({ route, navigation }) => {
   const { influencerId } = route.params;
+  const { getRating } = useLocalRatings();
   
-  const { data: influencer, isLoading } = useQuery({
+  const { data: influencer, isLoading, refetch } = useQuery({
     queryKey: ['influencer', influencerId],
     queryFn: () => influencerApi.getById(influencerId),
   });
+  
+  const userRating = getRating(influencerId);
   
   if (isLoading || !influencer) {
     return (
@@ -89,6 +94,13 @@ export const CleanDetailScreen: React.FC<Props> = ({ route, navigation }) => {
             </View>
           </View>
         </View>
+        
+        {/* Rating Component */}
+        <BeautifulRating
+          influencerId={influencer.id}
+          influencerName={influencer.name}
+          onRatingChanged={() => refetch()}
+        />
         
         {/* Mentions */}
         {influencer.mentions && influencer.mentions.length > 0 && (

@@ -2,9 +2,9 @@ import 'react-native-url-polyfill/auto';
 import { createClient } from '@supabase/supabase-js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// FREE Supabase project - Create at https://supabase.com
-const SUPABASE_URL = process.env.EXPO_PUBLIC_SUPABASE_URL || 'https://your-project.supabase.co';
-const SUPABASE_ANON_KEY = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || 'your-anon-key';
+// Supabase project credentials
+const SUPABASE_URL = 'https://ffvgvjymkiaiasfrhqih.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmdmd2anlta2lhaWFzZnJocWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyMjc4MzYsImV4cCI6MjA3ODgwMzgzNn0.XGvMtqMXozWP2r6MIHX9Tok9LUScPk2cuGVV16_f5aY';
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
   auth: {

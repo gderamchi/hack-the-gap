@@ -2,12 +2,12 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, ScrollView, Alert } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../types';
-import { useSimpleAuth } from '../contexts/SimpleAuthContext';
+import { useSupabaseAuth } from '../contexts/SupabaseAuthContext';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Profile'>;
 
 export const ProfileScreen: React.FC<Props> = ({ navigation }) => {
-  const { user, signOut, isAuthenticated } = useSimpleAuth();
+  const { user, signOut, isAuthenticated } = useSupabaseAuth();
 
   const handleSignOut = () => {
     Alert.alert(
@@ -76,16 +76,16 @@ export const ProfileScreen: React.FC<Props> = ({ navigation }) => {
         <View style={styles.profileHeader}>
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>
-              {(user.firstName?.[0] || user.email[0]).toUpperCase()}
+              {(user.user_metadata?.firstName?.[0] || user.email?.[0] || '?').toUpperCase()}
             </Text>
           </View>
 
           <Text style={styles.profileName}>
-            {user.firstName || 'User'}
+            {user.user_metadata?.firstName || 'User'}
           </Text>
           <Text style={styles.profileEmail}>{user.email}</Text>
           <View style={styles.roleBadge}>
-            <Text style={styles.roleText}>{user.role}</Text>
+            <Text style={styles.roleText}>{user.user_metadata?.role || 'Community'}</Text>
           </View>
         </View>
 
