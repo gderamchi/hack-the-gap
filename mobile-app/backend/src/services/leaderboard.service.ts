@@ -190,7 +190,7 @@ export class LeaderboardService {
 
     const users = await prisma.user.findMany({
       where: {
-        communitySignals: {
+        CommunitySignal: {
           some: {
             createdAt: {
               gte: periodDate,
@@ -204,8 +204,8 @@ export class LeaderboardService {
         lastName: true,
         avatar: true,
         role: true,
-        engagementStats: true,
-        communitySignals: {
+        UserEngagementStats: true,
+        CommunitySignal: {
           where: {
             createdAt: {
               gte: periodDate,
@@ -222,9 +222,9 @@ export class LeaderboardService {
         name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Anonymous',
         avatar: user.avatar,
         role: user.role,
-        activityCount: user.communitySignals.length,
-        reputationScore: user.engagementStats?.reputationScore || 50,
-        level: user.engagementStats?.level || 1,
+        activityCount: user.CommunitySignal.length,
+        reputationScore: user.UserEngagementStats?.reputationScore || 50,
+        level: user.UserEngagementStats?.level || 1,
       }))
       .sort((a, b) => b.activityCount - a.activityCount)
       .slice(0, limit);
@@ -248,7 +248,7 @@ export class LeaderboardService {
       where: {
         OR: [
           { lastUpdated: { gte: weekAgo } },
-          { communitySignals: { some: { createdAt: { gte: weekAgo } } } },
+          { CommunitySignal: { some: { createdAt: { gte: weekAgo } } } },
         ],
       },
       include: {
@@ -256,7 +256,7 @@ export class LeaderboardService {
           where: { analyzedAt: { gte: weekAgo } },
           orderBy: { analyzedAt: 'asc' },
         },
-        communitySignals: {
+        CommunitySignal: {
           where: { createdAt: { gte: weekAgo } },
         },
       },
@@ -273,7 +273,7 @@ export class LeaderboardService {
       const scoreChangePercent = (scoreChange / Math.max(oldScore, 1)) * 100;
 
       // Calculate trend score
-      const recentActivity = inf.communitySignals.filter(
+      const recentActivity = inf.CommunitySignal.filter(
         s => s.createdAt >= dayAgo
       ).length;
 
@@ -396,7 +396,7 @@ export class LeaderboardService {
 
     const users = await prisma.user.findMany({
       where: {
-        communitySignals: {
+        CommunitySignal: {
           some: {
             createdAt: { gte: periodDate },
             status: 'VERIFIED',
@@ -411,8 +411,8 @@ export class LeaderboardService {
         avatar: true,
         role: true,
         subscriptionTier: true,
-        engagementStats: true,
-        communitySignals: {
+        UserEngagementStats: true,
+        CommunitySignal: {
           where: {
             createdAt: { gte: periodDate },
             status: 'VERIFIED',
@@ -428,8 +428,8 @@ export class LeaderboardService {
 
     const ranked = users
       .map(user => {
-        const dramaReports = user.communitySignals.filter(s => s.type === 'DRAMA_REPORT').length;
-        const positiveReports = user.communitySignals.filter(s => s.type === 'POSITIVE_ACTION').length;
+        const dramaReports = user.CommunitySignal.filter(s => s.type === 'DRAMA_REPORT').length;
+        const positiveReports = user.CommunitySignal.filter(s => s.type === 'POSITIVE_ACTION').length;
         const totalReports = dramaReports + positiveReports;
 
         return {
@@ -441,8 +441,8 @@ export class LeaderboardService {
           dramaReports,
           positiveReports,
           totalReports,
-          reputationScore: user.engagementStats?.reputationScore || 50,
-          level: user.engagementStats?.level || 1,
+          reputationScore: user.UserEngagementStats?.reputationScore || 50,
+          level: user.UserEngagementStats?.level || 1,
         };
       })
       .filter(user => user.totalReports > 0)

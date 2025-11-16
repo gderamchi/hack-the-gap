@@ -1,9 +1,10 @@
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
-from typing import List, Dict
+from typing import List, Dict, Optional
 from scrapers import NewsScraper, YouTubeScraper, TwitterScraper, RedditScraper, ForumScraper
 from analyzer import SentimentAnalyzer
 from scorer import TrustScorer
+from leaderboard import LeaderboardManager
 import database
 from datetime import datetime
 
@@ -20,12 +21,18 @@ class InfluencerOrchestrator:
         }
         self.analyzer = SentimentAnalyzer()
         self.scorer = TrustScorer()
+        self.leaderboard = LeaderboardManager()
         self.db = database.get_db()
     
-    async def analyze_influencer(self, influencer_name: str, progress_callback=None) -> Dict:
+    async def analyze_influencer(self, influencer_name: str, progress_callback=None, contributor_username: Optional[str] = None) -> Dict:
         """
         Main orchestration method - runs all scrapers in parallel
         Returns complete analysis results
+        
+        Args:
+            influencer_name: Name of influencer to analyze
+            progress_callback: Optional callback for progress updates
+            contributor_username: Optional username of contributor performing analysis
         """
         print(f"\n🔍 Starting analysis for: {influencer_name}")
         
@@ -60,13 +67,37 @@ class InfluencerOrchestrator:
         
         score_data = self.scorer.calculate_trust_score(analyzed_mentions)
         
-        # Step 5: Update influencer record
+        # Step 5: Calculate points and quality score for contributor
+        contributor_id = None
+        points_awarded = 10
+        quality_score = 1.0
+        
+        if contributor_username:
+            contributor = database.get_or_create_contributor(self.db, contributor_username)
+            contributor_id = contributor.id
+            
+            # Calculate quality score based on analysis
+            quality_score = self.leaderboard.calculate_quality_score(analyzed_mentions)
+            
+            # Calculate points with bonuses
+            points_awarded = self.leaderboard.calculate_points(
+                mentions_count=len(analyzed_mentions),
+                quality_score=quality_score,
+                streak_days=contributor.streak_days
+            )
+            
+            print(f"🎯 Points awarded: {points_awarded} (Quality: {quality_score:.2f})")
+        
+        # Step 6: Update influencer record with contributor info
         database.update_influencer_score(
             self.db,
             influencer_name,
             score_data['trust_score'],
             score_data['drama_count'],
-            score_data['good_action_count']
+            score_data['good_action_count'],
+            contributor_id=contributor_id,
+            points_awarded=points_awarded,
+            quality_score=quality_score
         )
         
         if progress_callback:
@@ -81,7 +112,9 @@ class InfluencerOrchestrator:
             'mentions': analyzed_mentions,
             'score_data': score_data,
             'trust_level': self.scorer.get_trust_level(score_data['trust_score']),
-            'trust_color': self.scorer.get_trust_color(score_data['trust_score'])
+            'trust_color': self.scorer.get_trust_color(score_data['trust_score']),
+            'points_awarded': points_awarded if contributor_username else None,
+            'quality_score': quality_score if contributor_username else None
         }
     
     async def _run_scrapers_parallel(self, influencer_name: str) -> List[Dict]:

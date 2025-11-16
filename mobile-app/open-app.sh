@@ -42,14 +42,13 @@ case $choice in
         ;;
     3)
         echo "Starting Expo - Scan the QR code with Expo Go app..."
-        npx expo start
+        npx expo start --tunnel
         ;;
     4)
         echo "Opening in web browser..."
         npx expo start --web
-        ;;
-    *)
+        ;;\n    *)
         echo "Invalid choice. Starting Expo (scan QR code)..."
-        npx expo start
+        npx expo start --tunnel
         ;;
 esac

@@ -1,0 +1,136 @@
+
+> trustfluencers-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 06:59:26 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T05:59:27.161Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T05:59:27.162Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T05:59:27.162Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T05:59:47.985Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T06:10:16.937Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T06:10:25.549Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::1","timestamp":"2025-11-16T06:10:35.910Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/trending {"ip":"::1","timestamp":"2025-11-16T06:10:43.190Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/most-improved {"ip":"::1","timestamp":"2025-11-16T06:10:51.369Z","userAgent":"curl/8.7.1"}
+[31merror[39m: Error getting most improved: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getMostImproved (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:48:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:45:25","timestamp":"2025-11-16T06:10:51.469Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/highest-risk {"ip":"::1","timestamp":"2025-11-16T06:10:59.598Z","userAgent":"curl/8.7.1"}
+[31merror[39m: Error getting highest risk: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getHighestRisk (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:96:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:70:25","timestamp":"2025-11-16T06:10:59.667Z"}
+[32minfo[39m: GET /api/influencers/7d5b25f7-65f4-47d0-83c6-26690b6e3f60 {"ip":"::1","timestamp":"2025-11-16T06:11:08.596Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:22:00.723Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:23:04.991Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers/cb0905e2-ea70-47c2-a002-8ed731e478ae {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.053Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/engagement/my-subscription {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.502Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/transparency/breakdown/cb0905e2-ea70-47c2-a002-8ed731e478ae {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.518Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/transparency/timeline/cb0905e2-ea70-47c2-a002-8ed731e478ae {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.520Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/community/signals/cb0905e2-ea70-47c2-a002-8ed731e478ae {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.521Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/community/stats/cb0905e2-ea70-47c2-a002-8ed731e478ae {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:08.523Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: Synced new user from Supabase: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:08.968Z"}
+[32minfo[39m: 📧 Email registered for notifications: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:08.969Z"}
+[32minfo[39m: 📧 To send emails to dylandehili@gmail.com, add it as a test email in Resend dashboard: {"timestamp":"2025-11-16T12:24:08.969Z"}
+[32minfo[39m:    https://resend.com/settings/emails {"timestamp":"2025-11-16T12:24:08.969Z"}
+[32minfo[39m: Updated user from Supabase: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:09.094Z"}
+[32minfo[39m: GET /api/influencers/b7986ecc-f656-45db-a4d9-49a88a364855 {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.147Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/engagement/my-subscription {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.374Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/transparency/timeline/b7986ecc-f656-45db-a4d9-49a88a364855 {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.387Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/community/stats/b7986ecc-f656-45db-a4d9-49a88a364855 {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.389Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/transparency/breakdown/b7986ecc-f656-45db-a4d9-49a88a364855 {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.391Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/community/signals/b7986ecc-f656-45db-a4d9-49a88a364855 {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:46.392Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: Updated user from Supabase: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:46.725Z"}
+[32minfo[39m: Updated user from Supabase: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:46.744Z"}
+[32minfo[39m: GET /api/engagement/my-subscription {"ip":"::ffff:10.80.225.174","timestamp":"2025-11-16T12:24:48.285Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: Updated user from Supabase: dylandehili@gmail.com {"timestamp":"2025-11-16T12:24:48.477Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:17.591Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/my-stats {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:17.593Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T12:26:17.880Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/most-improved {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:20.607Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting most improved: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getMostImproved (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:48:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:45:25","timestamp":"2025-11-16T12:26:20.745Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/highest-risk {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:21.754Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting highest risk: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getHighestRisk (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:96:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:70:25","timestamp":"2025-11-16T12:26:22.019Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/highest-risk {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:25.345Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting highest risk: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getHighestRisk (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:96:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:70:25","timestamp":"2025-11-16T12:26:25.421Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:26.372Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/leaderboard/most-improved {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:27.372Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting most improved: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getMostImproved (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:48:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:45:25","timestamp":"2025-11-16T12:26:27.446Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/highest-risk {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:28.338Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting highest risk: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getHighestRisk (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:96:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:70:25","timestamp":"2025-11-16T12:26:28.414Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:29.339Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/my-achievements {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:33.394Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T12:26:33.681Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/most-improved {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T12:26:38.313Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting most improved: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getMostImproved (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:48:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:45:25","timestamp":"2025-11-16T12:26:38.411Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T12:27:40.444Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T12:28:44.651Z","userAgent":"curl/8.7.1"}
+[INFO] 13:33:10 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-4274788596840462.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-4274788596840462.js:114:20)
+[ERROR] 13:33:12 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 13:33:38 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Compilation error in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:33:40 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:36:27 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:36:28 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:37:31 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-4274788596840462.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-4274788596840462.js:114:20)
+[ERROR] 13:37:33 Error: listen EADDRINUSE: address already in use :::3000

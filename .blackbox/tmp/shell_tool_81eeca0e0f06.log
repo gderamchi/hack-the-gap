@@ -260,3 +260,54 @@ The TrustFluencers Team
 [32minfo[39m: GET /api/community/signals/712088a5-3d60-4e32-9437-2088be4af2ed {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:49:03.762Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
 [32minfo[39m: GET /api/transparency/breakdown/712088a5-3d60-4e32-9437-2088be4af2ed {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:49:03.763Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
 [32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T04:49:04.113Z"}
+[32minfo[39m: GET /api/influencers/0806aeca-cb97-4a7b-aff5-7f327a4606b9 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:09.454Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/my-subscription {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:10.099Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/community/signals/0806aeca-cb97-4a7b-aff5-7f327a4606b9 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:10.112Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/community/stats/0806aeca-cb97-4a7b-aff5-7f327a4606b9 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:10.113Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/transparency/breakdown/0806aeca-cb97-4a7b-aff5-7f327a4606b9 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:10.113Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/transparency/timeline/0806aeca-cb97-4a7b-aff5-7f327a4606b9 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:10.114Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T04:53:10.594Z"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T04:53:10.629Z"}
+[32minfo[39m: POST /api/influencers/know-more {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T04:53:13.942Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: Fetching detailed info for: Lila Bonbon {"timestamp":"2025-11-16T04:53:13.943Z"}
+[INFO] 13:33:10 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-3018592338368524.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-3018592338368524.js:114:20)
+[ERROR] 13:33:12 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 13:33:38 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Compilation error in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:33:40 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:36:27 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:36:29 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:37:31 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-3018592338368524.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-3018592338368524.js:114:20)
+[ERROR] 13:37:33 Error: listen EADDRINUSE: address already in use :::3000

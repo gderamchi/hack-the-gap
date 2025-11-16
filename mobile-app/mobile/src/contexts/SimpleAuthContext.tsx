@@ -57,6 +57,10 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         password,
         firstName,
         role: 'COMMUNITY',
+      }, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true', // Required for ngrok to bypass browser warning page
+        },
       });
 
       const { user: userData, accessToken } = response.data.data;
@@ -75,6 +79,10 @@ export const SimpleAuthProvider: React.FC<{ children: React.ReactNode }> = ({ ch
       const response = await axios.post(`${API_URL}/auth/login`, {
         email,
         password,
+      }, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true', // Required for ngrok to bypass browser warning page
+        },
       });
 
       const { user: userData, accessToken } = response.data.data;

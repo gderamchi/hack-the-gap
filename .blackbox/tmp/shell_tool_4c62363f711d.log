@@ -1,0 +1,9 @@
+env: load .env
+env: export EXPO_PUBLIC_SUPABASE_URL EXPO_PUBLIC_SUPABASE_ANON_KEY EXPO_PUBLIC_API_URL
+Starting project at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/mobile
+› Port 8081 is running this app in another window
+  /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/mobile (pid 83818)
+Input is required, but 'npx expo' is in non-interactive mode.
+Required input:
+> Use port 8082 instead?
+› Skipping dev server

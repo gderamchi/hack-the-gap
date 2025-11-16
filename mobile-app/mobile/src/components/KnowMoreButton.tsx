@@ -28,6 +28,10 @@ export const KnowMoreButton: React.FC<KnowMoreButtonProps> = ({
       const response = await axios.post(`${API_URL}/influencers/know-more`, {
         name: influencerName,
         niche: niche,
+      }, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true', // Required for ngrok to bypass browser warning page
+        },
       });
       
       // Remove citation numbers like [1], [2], [10] etc.

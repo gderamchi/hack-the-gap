@@ -40,7 +40,7 @@
       "dir": "ltr"
     },
     "extra": {
-      "apiUrl": "http://10.80.222.41:3000/api",
+      "apiUrl": "https://4029e75314d9.ngrok-free.app/api",
       "supabaseUrl": "https://ffvgvjymkiaiasfrhqih.supabase.co",
       "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmdmd2anlta2lhaWFzZnJocWloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMyMjc4MzYsImV4cCI6MjA3ODgwMzgzNn0.XGvMtqMXozWP2r6MIHX9Tok9LUScPk2cuGVV16_f5aY"
     }

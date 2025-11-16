@@ -9,6 +9,7 @@ const api = axios.create({
   timeout: 60000, // 60 seconds for Perplexity queries
   headers: {
     'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true', // Required for ngrok to bypass browser warning page
   },
 });
 
