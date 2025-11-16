@@ -1,4 +1,4 @@
-import { PrismaClient, UserRole } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import logger from '../utils/logger';
@@ -13,7 +13,7 @@ export interface RegisterInput {
   password: string;
   firstName?: string;
   lastName?: string;
-  role?: UserRole;
+  role?: string;
   company?: string;
 }
 

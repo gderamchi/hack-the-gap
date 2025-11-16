@@ -1,0 +1,484 @@
+import { PrismaClient } from '@prisma/client';
+import logger from '../utils/logger';
+
+const prisma = new PrismaClient();
+
+export class LeaderboardService {
+  /**
+   * Get top rated influencers
+   */
+  async getTopRated(limit: number = 20) {
+    const influencers = await prisma.influencer.findMany({
+      orderBy: { trustScore: 'desc' },
+      take: limit,
+      select: {
+        id: true,
+        name: true,
+        imageUrl: true,
+        niche: true,
+        trustScore: true,
+        dramaCount: true,
+        goodActionCount: true,
+        lastUpdated: true,
+        communityTrustScore: {
+          select: {
+            avgRating: true,
+            totalRatings: true,
+            communityScore: true,
+            combinedScore: true,
+          },
+        },
+      },
+    });
+
+    return influencers.map((inf, index) => ({
+      ...inf,
+      rank: index + 1,
+      badge: this.getRankBadge(index + 1),
+    }));
+  }
+
+  /**
+   * Get most improved influencers (biggest positive score change)
+   */
+  async getMostImproved(period: 'DAILY' | 'WEEKLY' | 'MONTHLY' = 'WEEKLY', limit: number = 20) {
+    const periodDate = this.getPeriodDate(period);
+
+    // Get score changes from history
+    const influencers = await prisma.$queryRaw<any[]>`
+      SELECT 
+        i.id,
+        i.name,
+        i.imageUrl,
+        i.niche,
+        i.trustScore as currentScore,
+        (
+          SELECT trustScore 
+          FROM AnalysisHistory 
+          WHERE influencerId = i.id 
+            AND analyzedAt >= ${periodDate}
+          ORDER BY analyzedAt ASC 
+          LIMIT 1
+        ) as oldScore
+      FROM Influencer i
+      WHERE EXISTS (
+        SELECT 1 FROM AnalysisHistory 
+        WHERE influencerId = i.id 
+          AND analyzedAt >= ${periodDate}
+      )
+    `;
+
+    const improved = influencers
+      .filter(inf => inf.oldScore !== null)
+      .map(inf => ({
+        ...inf,
+        scoreChange: inf.currentScore - inf.oldScore,
+        scoreChangePercent: ((inf.currentScore - inf.oldScore) / Math.max(inf.oldScore, 1)) * 100,
+      }))
+      .filter(inf => inf.scoreChange > 0)
+      .sort((a, b) => b.scoreChange - a.scoreChange)
+      .slice(0, limit);
+
+    return improved.map((inf, index) => ({
+      ...inf,
+      rank: index + 1,
+      badge: this.getRankBadge(index + 1),
+    }));
+  }
+
+  /**
+   * Get highest risk influencers (biggest negative score change or low scores)
+   */
+  async getHighestRisk(period: 'DAILY' | 'WEEKLY' | 'MONTHLY' = 'WEEKLY', limit: number = 20) {
+    const periodDate = this.getPeriodDate(period);
+
+    // Get score changes from history
+    const influencers = await prisma.$queryRaw<any[]>`
+      SELECT 
+        i.id,
+        i.name,
+        i.imageUrl,
+        i.niche,
+        i.trustScore as currentScore,
+        i.dramaCount,
+        (
+          SELECT trustScore 
+          FROM AnalysisHistory 
+          WHERE influencerId = i.id 
+            AND analyzedAt >= ${periodDate}
+          ORDER BY analyzedAt ASC 
+          LIMIT 1
+        ) as oldScore
+      FROM Influencer i
+      WHERE EXISTS (
+        SELECT 1 FROM AnalysisHistory 
+        WHERE influencerId = i.id 
+          AND analyzedAt >= ${periodDate}
+      )
+    `;
+
+    const atRisk = influencers
+      .filter(inf => inf.oldScore !== null)
+      .map(inf => ({
+        ...inf,
+        scoreChange: inf.currentScore - inf.oldScore,
+        scoreChangePercent: ((inf.currentScore - inf.oldScore) / Math.max(inf.oldScore, 1)) * 100,
+        riskScore: this.calculateRiskScore(inf),
+      }))
+      .sort((a, b) => b.riskScore - a.riskScore)
+      .slice(0, limit);
+
+    return atRisk.map((inf, index) => ({
+      ...inf,
+      rank: index + 1,
+      badge: this.getRiskBadge(index + 1),
+    }));
+  }
+
+  /**
+   * Get trending influencers
+   */
+  async getTrending(limit: number = 20) {
+    const trending = await prisma.trendingInfluencer.findMany({
+      where: {
+        createdAt: {
+          gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // Last 7 days
+        },
+      },
+      orderBy: { trendScore: 'desc' },
+      take: limit,
+    });
+
+    const influencerIds = trending.map(t => t.influencerId);
+    const influencers = await prisma.influencer.findMany({
+      where: { id: { in: influencerIds } },
+      select: {
+        id: true,
+        name: true,
+        imageUrl: true,
+        niche: true,
+        trustScore: true,
+      },
+    });
+
+    const influencerMap = new Map(influencers.map(inf => [inf.id, inf]));
+
+    return trending
+      .map((t, index) => {
+        const inf = influencerMap.get(t.influencerId);
+        if (!inf) return null;
+
+        return {
+          ...inf,
+          rank: index + 1,
+          trendType: t.trendType,
+          trendScore: t.trendScore,
+          scoreChange: t.scoreChange,
+          scoreChangePercent: t.scoreChangePercent,
+          reason: t.reason,
+          badge: this.getTrendBadge(t.trendType),
+        };
+      })
+      .filter(Boolean);
+  }
+
+  /**
+   * Get most active community members
+   */
+  async getMostActiveUsers(period: 'DAILY' | 'WEEKLY' | 'MONTHLY' = 'WEEKLY', limit: number = 20) {
+    const periodDate = this.getPeriodDate(period);
+
+    const users = await prisma.user.findMany({
+      where: {
+        communitySignals: {
+          some: {
+            createdAt: {
+              gte: periodDate,
+            },
+          },
+        },
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        avatar: true,
+        role: true,
+        engagementStats: true,
+        communitySignals: {
+          where: {
+            createdAt: {
+              gte: periodDate,
+            },
+          },
+        },
+      },
+      take: limit * 2, // Get more to filter
+    });
+
+    const ranked = users
+      .map(user => ({
+        id: user.id,
+        name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Anonymous',
+        avatar: user.avatar,
+        role: user.role,
+        activityCount: user.communitySignals.length,
+        reputationScore: user.engagementStats?.reputationScore || 50,
+        level: user.engagementStats?.level || 1,
+      }))
+      .sort((a, b) => b.activityCount - a.activityCount)
+      .slice(0, limit);
+
+    return ranked.map((user, index) => ({
+      ...user,
+      rank: index + 1,
+      badge: this.getRankBadge(index + 1),
+    }));
+  }
+
+  /**
+   * Update trending influencers (run periodically)
+   */
+  async updateTrending() {
+    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const dayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+
+    // Get influencers with recent activity
+    const influencers = await prisma.influencer.findMany({
+      where: {
+        OR: [
+          { lastUpdated: { gte: weekAgo } },
+          { communitySignals: { some: { createdAt: { gte: weekAgo } } } },
+        ],
+      },
+      include: {
+        history: {
+          where: { analyzedAt: { gte: weekAgo } },
+          orderBy: { analyzedAt: 'asc' },
+        },
+        communitySignals: {
+          where: { createdAt: { gte: weekAgo } },
+        },
+      },
+    });
+
+    const trendingData = [];
+
+    for (const inf of influencers) {
+      if (inf.history.length < 2) continue;
+
+      const oldScore = inf.history[0].trustScore;
+      const currentScore = inf.trustScore;
+      const scoreChange = currentScore - oldScore;
+      const scoreChangePercent = (scoreChange / Math.max(oldScore, 1)) * 100;
+
+      // Calculate trend score
+      const recentActivity = inf.communitySignals.filter(
+        s => s.createdAt >= dayAgo
+      ).length;
+
+      const trendScore = Math.abs(scoreChangePercent) * 10 + recentActivity * 5;
+
+      if (trendScore < 10) continue; // Not trending enough
+
+      // Determine trend type
+      let trendType = 'RISING';
+      let reason = '';
+
+      if (scoreChange > 10) {
+        trendType = 'RISING';
+        reason = `Score increased by ${scoreChange.toFixed(1)} points`;
+      } else if (scoreChange < -10) {
+        trendType = 'FALLING';
+        reason = `Score decreased by ${Math.abs(scoreChange).toFixed(1)} points`;
+      } else if (inf.dramaCount > 0 && recentActivity > 5) {
+        trendType = 'CONTROVERSIAL';
+        reason = `High community activity (${recentActivity} signals)`;
+      } else if (scoreChange > 0 && inf.goodActionCount > inf.dramaCount) {
+        trendType = 'IMPROVING';
+        reason = `Positive trend with ${inf.goodActionCount} good actions`;
+      }
+
+      trendingData.push({
+        influencerId: inf.id,
+        trendType,
+        trendScore,
+        scoreChange,
+        scoreChangePercent,
+        periodStart: weekAgo,
+        periodEnd: new Date(),
+        reason,
+      });
+    }
+
+    // Clear old trending data
+    await prisma.trendingInfluencer.deleteMany({
+      where: {
+        createdAt: {
+          lt: weekAgo,
+        },
+      },
+    });
+
+    // Insert new trending data
+    if (trendingData.length > 0) {
+      await prisma.trendingInfluencer.createMany({
+        data: trendingData,
+      });
+    }
+
+    logger.info(`Updated trending influencers: ${trendingData.length} trending`);
+
+    return trendingData.length;
+  }
+
+  /**
+   * Helper: Get period start date
+   */
+  private getPeriodDate(period: 'DAILY' | 'WEEKLY' | 'MONTHLY'): Date {
+    const now = Date.now();
+    switch (period) {
+      case 'DAILY':
+        return new Date(now - 24 * 60 * 60 * 1000);
+      case 'WEEKLY':
+        return new Date(now - 7 * 24 * 60 * 60 * 1000);
+      case 'MONTHLY':
+        return new Date(now - 30 * 24 * 60 * 60 * 1000);
+    }
+  }
+
+  /**
+   * Helper: Calculate risk score
+   */
+  private calculateRiskScore(inf: any): number {
+    let risk = 0;
+
+    // Low trust score = high risk
+    if (inf.currentScore < 40) risk += 50;
+    else if (inf.currentScore < 60) risk += 25;
+
+    // Negative score change = high risk
+    if (inf.scoreChange < -10) risk += 30;
+    else if (inf.scoreChange < -5) risk += 15;
+
+    // High drama count = high risk
+    risk += Math.min(inf.dramaCount * 5, 20);
+
+    return risk;
+  }
+
+  /**
+   * Helper: Get rank badge
+   */
+  private getRankBadge(rank: number): string {
+    if (rank === 1) return '🥇';
+    if (rank === 2) return '🥈';
+    if (rank === 3) return '🥉';
+    if (rank <= 10) return '⭐';
+    return '';
+  }
+
+  /**
+   * Helper: Get risk badge
+   */
+  private getRiskBadge(rank: number): string {
+    if (rank === 1) return '🚨';
+    if (rank === 2) return '⚠️';
+    if (rank === 3) return '⚡';
+    return '🔴';
+  }
+
+  /**
+   * Get top contributors (most accepted drama/positive reports)
+   */
+  async getTopContributors(period: 'DAILY' | 'WEEKLY' | 'MONTHLY' | 'ALL_TIME' = 'ALL_TIME', limit: number = 20) {
+    const periodDate = period === 'ALL_TIME' ? new Date(0) : this.getPeriodDate(period);
+
+    const users = await prisma.user.findMany({
+      where: {
+        communitySignals: {
+          some: {
+            createdAt: { gte: periodDate },
+            status: 'VERIFIED',
+            type: { in: ['DRAMA_REPORT', 'POSITIVE_ACTION'] },
+          },
+        },
+      },
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        avatar: true,
+        role: true,
+        subscriptionTier: true,
+        engagementStats: true,
+        communitySignals: {
+          where: {
+            createdAt: { gte: periodDate },
+            status: 'VERIFIED',
+            type: { in: ['DRAMA_REPORT', 'POSITIVE_ACTION'] },
+          },
+          select: {
+            type: true,
+            createdAt: true,
+          },
+        },
+      },
+    });
+
+    const ranked = users
+      .map(user => {
+        const dramaReports = user.communitySignals.filter(s => s.type === 'DRAMA_REPORT').length;
+        const positiveReports = user.communitySignals.filter(s => s.type === 'POSITIVE_ACTION').length;
+        const totalReports = dramaReports + positiveReports;
+
+        return {
+          id: user.id,
+          name: `${user.firstName || ''} ${user.lastName || ''}`.trim() || 'Anonymous',
+          avatar: user.avatar,
+          role: user.role,
+          subscriptionTier: user.subscriptionTier,
+          dramaReports,
+          positiveReports,
+          totalReports,
+          reputationScore: user.engagementStats?.reputationScore || 50,
+          level: user.engagementStats?.level || 1,
+        };
+      })
+      .filter(user => user.totalReports > 0)
+      .sort((a, b) => b.totalReports - a.totalReports)
+      .slice(0, limit);
+
+    return ranked.map((user, index) => ({
+      ...user,
+      rank: index + 1,
+      badge: this.getContributorBadge(index + 1),
+    }));
+  }
+
+  /**
+   * Helper: Get contributor badge
+   */
+  private getContributorBadge(rank: number): string {
+    if (rank === 1) return '🏆';
+    if (rank === 2) return '🥈';
+    if (rank === 3) return '🥉';
+    if (rank <= 10) return '⭐';
+    return '🎖️';
+  }
+
+  /**
+   * Helper: Get trend badge
+   */
+  private getTrendBadge(trendType: string): string {
+    switch (trendType) {
+      case 'RISING': return '📈';
+      case 'FALLING': return '📉';
+      case 'CONTROVERSIAL': return '🔥';
+      case 'IMPROVING': return '✨';
+      default: return '📊';
+    }
+  }
+}
+
+export default new LeaderboardService();

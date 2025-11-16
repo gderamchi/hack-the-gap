@@ -5,8 +5,9 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Influencer {
@@ -25,14 +26,23 @@ model Influencer {
   lastUpdated     DateTime @updatedAt
   createdAt       DateTime @default(now())
   
+  // Phase 2: Transparency & Fairness
+  isClaimed       Boolean  @default(false)
+  claimedBy       String?  // User ID who claimed this profile
+  claimedAt       DateTime?
+  verificationStatus String @default("UNCLAIMED") // UNCLAIMED, PENDING, VERIFIED, REJECTED
+  
   mentions              Mention[]
   history               AnalysisHistory[]
   communitySignals      CommunitySignal[]
   communityTrustScore   CommunityTrustScore?
   deepSearchAnalyses    DeepSearchAnalysis[]
+  claimRequests         ClaimRequest[]
+  influencerResponses   InfluencerResponse[]
 
   @@index([trustScore])
   @@index([name])
+  @@index([isClaimed])
 }
 
 model Mention {
@@ -45,9 +55,19 @@ model Mention {
   sentimentScore Float
   label          String     // drama, good_action, neutral
   scrapedAt      DateTime   @default(now())
+  
+  // Phase 2: Transparency
+  severity       String     @default("MEDIUM") // LOW, MEDIUM, HIGH, CRITICAL
+  scoreImpact    Float      @default(0.0)      // How much this event affected the score
+  isVerified     Boolean    @default(false)
+  verifiedBy     String?
+  verifiedAt     DateTime?
+  
+  responses      InfluencerResponse[]
 
   @@index([influencerId])
   @@index([label])
+  @@index([severity])
   @@index([scrapedAt])
 }
 
@@ -82,9 +102,14 @@ model User {
   company       String?
   avatar        String?
   
-  subscriptionTier    String?
-  subscriptionStatus  String?
+  subscriptionTier    String      @default("FREE") // FREE, PREMIUM, PROFESSIONAL
+  subscriptionStatus  String      @default("ACTIVE") // ACTIVE, CANCELLED, EXPIRED
   subscriptionExpiry  DateTime?
+  
+  // Usage limits (reset monthly)
+  monthlyReportsUsed  Int         @default(0)
+  monthlyReportsLimit Int         @default(5) // FREE: 5, PREMIUM: 50, PROFESSIONAL: unlimited
+  lastResetDate       DateTime    @default(now())
   
   createdAt     DateTime    @default(now())
   lastLoginAt   DateTime?
@@ -94,6 +119,10 @@ model User {
   deepSearchOrders  DeepSearchOrder[]
   payments          Payment[]
   firstBuyerOf      DeepSearchAnalysis[] @relation("FirstBuyer")
+  claimRequests     ClaimRequest[]
+  responseVotes     ResponseVote[]
+  achievements      UserAchievement[]
+  engagementStats   UserEngagementStats?
   
   @@index([email])
   @@index([role])
@@ -116,8 +145,22 @@ model CommunitySignal {
   comment       String?
   tags          String?
   
+  // Duplicate detection
+  contentHash   String?     // Hash of comment for duplicate detection
+  isDuplicate   Boolean     @default(false)
+  duplicateOf   String?     // ID of original signal if duplicate
+  
+  // Verification system
+  status        String      @default("PENDING") // PENDING, VERIFIED, REJECTED, PUBLISHED
   isVerified    Boolean     @default(false)
   verifiedAt    DateTime?
+  verifiedBy    String?     // AI or Admin user ID
+  verificationResult String? // AI verification response
+  rejectionReason String?
+  
+  // Email notification
+  emailSent     Boolean     @default(false)
+  emailSentAt   DateTime?
   
   isHidden      Boolean     @default(false)
   hiddenReason  String?
@@ -125,9 +168,12 @@ model CommunitySignal {
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
   
+  responses     InfluencerResponse[]
+  
   @@index([influencerId])
   @@index([userId])
   @@index([type])
+  @@index([status])
   @@index([createdAt])
 }
 
@@ -239,4 +285,244 @@ model Payment {
   
   @@index([userId])
   @@index([status])
+}
+
+// ============================================
+// PHASE 2: TRANSPARENCY & FAIRNESS
+// ============================================
+
+// Influencer claim requests
+model ClaimRequest {
+  id                String      @id @default(uuid())
+  
+  influencerId      String
+  influencer        Influencer  @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  status            String      @default("PENDING") // PENDING, APPROVED, REJECTED
+  
+  // Verification documents/proof
+  proofType         String?     // social_media_post, email_verification, official_document
+  proofUrl          String?
+  proofText         String?
+  
+  // Admin review
+  reviewedBy        String?
+  reviewedAt        DateTime?
+  reviewNotes       String?
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  
+  @@index([influencerId])
+  @@index([userId])
+  @@index([status])
+}
+
+// Influencer responses to events/mentions
+model InfluencerResponse {
+  id                String      @id @default(uuid())
+  
+  influencerId      String
+  influencer        Influencer  @relation(fields: [influencerId], references: [id], onDelete: Cascade)
+  
+  mentionId         String?
+  mention           Mention?    @relation(fields: [mentionId], references: [id], onDelete: Cascade)
+  
+  signalId          String?
+  signal            CommunitySignal? @relation(fields: [signalId], references: [id], onDelete: Cascade)
+  
+  responseType      String      // CLARIFICATION, APOLOGY, DENIAL, CONTEXT, CORRECTION
+  responseText      String
+  
+  // Supporting evidence
+  evidenceUrls      String?     // JSON array of URLs
+  
+  // Community feedback on response
+  helpfulCount      Int         @default(0)
+  notHelpfulCount   Int         @default(0)
+  
+  isVerified        Boolean     @default(false)
+  verifiedBy        String?
+  verifiedAt        DateTime?
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  
+  votes             ResponseVote[]
+  
+  @@index([influencerId])
+  @@index([mentionId])
+  @@index([signalId])
+}
+
+// Community votes on influencer responses
+model ResponseVote {
+  id                String              @id @default(uuid())
+  
+  responseId        String
+  response          InfluencerResponse  @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  
+  userId            String
+  user              User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  isHelpful         Boolean             // true = helpful, false = not helpful
+  
+  createdAt         DateTime            @default(now())
+  
+  @@unique([responseId, userId])
+  @@index([responseId])
+  @@index([userId])
+}
+
+// Review requests for disputed events
+model ReviewRequest {
+  id                String      @id @default(uuid())
+  
+  influencerId      String
+  
+  mentionId         String?
+  signalId          String?
+  
+  requestedBy       String      // User ID (influencer or community member)
+  requestType       String      // DISPUTE_EVENT, REMOVE_SIGNAL, UPDATE_SEVERITY, VERIFY_EVENT
+  
+  reason            String
+  evidence          String?     // JSON with supporting evidence
+  
+  status            String      @default("PENDING") // PENDING, UNDER_REVIEW, APPROVED, REJECTED
+  
+  reviewedBy        String?
+  reviewedAt        DateTime?
+  reviewNotes       String?
+  resolution        String?
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  
+  @@index([influencerId])
+  @@index([status])
+  @@index([requestedBy])
+}
+
+// Score impact history for transparency
+model ScoreImpactLog {
+  id                String      @id @default(uuid())
+  
+  influencerId      String
+  
+  eventType         String      // MENTION, COMMUNITY_SIGNAL, MANUAL_ADJUSTMENT
+  eventId           String
+  
+  impactType        String      // POSITIVE, NEGATIVE, NEUTRAL
+  impactAmount      Float       // How much the score changed
+  
+  oldScore          Float
+  newScore          Float
+  
+  reason            String
+  details           String?     // JSON with detailed breakdown
+  
+  createdAt         DateTime    @default(now())
+  
+  @@index([influencerId])
+  @@index([createdAt])
+}
+
+// ============================================
+// PHASE 3: ENGAGEMENT & GAMIFICATION
+// ============================================
+
+// User achievements and badges
+model UserAchievement {
+  id                String      @id @default(uuid())
+  
+  userId            String
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  achievementType   String      // FIRST_RATING, TRUSTED_VOTER, INFLUENCER_HUNTER, etc.
+  achievementLevel  Int         @default(1) // Bronze=1, Silver=2, Gold=3, Platinum=4
+  
+  progress          Int         @default(0)
+  progressTarget    Int
+  
+  unlockedAt        DateTime?
+  
+  createdAt         DateTime    @default(now())
+  
+  @@unique([userId, achievementType])
+  @@index([userId])
+  @@index([achievementType])
+}
+
+// Trending influencers tracking
+model TrendingInfluencer {
+  id                String      @id @default(uuid())
+  
+  influencerId      String
+  
+  trendType         String      // RISING, FALLING, CONTROVERSIAL, IMPROVING
+  trendScore        Float       // How trending (0-100)
+  
+  scoreChange       Float       // Change in trust score
+  scoreChangePercent Float      // Percentage change
+  
+  periodStart       DateTime
+  periodEnd         DateTime
+  
+  reason            String?     // Why trending
+  
+  createdAt         DateTime    @default(now())
+  
+  @@index([influencerId])
+  @@index([trendType])
+  @@index([trendScore])
+  @@index([createdAt])
+}
+
+// Leaderboard cache
+model LeaderboardCache {
+  id                String      @id @default(uuid())
+  
+  leaderboardType   String      // TOP_RATED, MOST_IMPROVED, HIGHEST_RISK, TRENDING, etc.
+  period            String      // DAILY, WEEKLY, MONTHLY, ALL_TIME
+  
+  data              String      // JSON with ranked influencers
+  
+  calculatedAt      DateTime    @default(now())
+  expiresAt         DateTime
+  
+  @@unique([leaderboardType, period])
+  @@index([leaderboardType])
+  @@index([expiresAt])
+}
+
+// User engagement stats
+model UserEngagementStats {
+  id                String      @id @default(uuid())
+  
+  userId            String      @unique
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  totalRatings      Int         @default(0)
+  totalReports      Int         @default(0)
+  totalComments     Int         @default(0)
+  
+  helpfulVotes      Int         @default(0)
+  notHelpfulVotes   Int         @default(0)
+  
+  reputationScore   Float       @default(50.0)
+  level             Int         @default(1)
+  experiencePoints  Int         @default(0)
+  
+  streak            Int         @default(0) // Days active in a row
+  lastActiveDate    DateTime?
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  
+  @@index([reputationScore])
+  @@index([level])
 }
