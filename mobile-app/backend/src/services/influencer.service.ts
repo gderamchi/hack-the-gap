@@ -1,13 +1,15 @@
 import { PrismaClient, Influencer, Mention } from '@prisma/client';
+import { randomUUID } from 'crypto';
 import blackboxService from './blackbox.service'; // Using FREE Blackbox AI!
 import scoringService from './scoring.service';
+import advancedScoringService from './advanced-scoring.service';
 import logger from '../utils/logger';
 import { config } from '../config';
 
 const prisma = new PrismaClient();
 
 export interface InfluencerWithMentions extends Influencer {
-  mentions: Mention[];
+  Mention: Mention[];
 }
 
 export interface SearchResult {
@@ -26,6 +28,7 @@ export interface SearchResult {
 export class InfluencerService {
   /**
    * Get all influencers sorted by trust score
+   * Returns influencers with combined score (AI + Community)
    */
   async getAllInfluencers(
     minTrustScore?: number,
@@ -42,26 +45,45 @@ export class InfluencerService {
       where.niche = niche;
     }
     
-    return prisma.influencer.findMany({
+    const influencers = await prisma.influencer.findMany({
       where,
       orderBy: { trustScore: 'desc' },
       take: limit,
+      include: {
+        CommunityTrustScore: true,
+      },
     });
+    
+    // Return influencers with combined score as the main trustScore
+    return influencers.map(inf => ({
+      ...inf,
+      trustScore: inf.CommunityTrustScore?.combinedScore || inf.trustScore,
+    })) as Influencer[];
   }
   
   /**
    * Get influencer by ID with mentions
+   * Returns influencer with combined score (AI + Community)
    */
   async getInfluencerById(id: string): Promise<InfluencerWithMentions | null> {
-    return prisma.influencer.findUnique({
+    const influencer = await prisma.influencer.findUnique({
       where: { id },
       include: {
-        mentions: {
+        Mention: {
           orderBy: { scrapedAt: 'desc' },
           take: 100,
         },
+        CommunityTrustScore: true,
       },
     });
+    
+    if (!influencer) return null;
+    
+    // Return influencer with combined score as the main trustScore
+    return {
+      ...influencer,
+      trustScore: influencer.CommunityTrustScore?.combinedScore || influencer.trustScore,
+    } as InfluencerWithMentions;
   }
   
   /**
@@ -78,7 +100,7 @@ export class InfluencerService {
     const existing = await prisma.influencer.findUnique({
       where: { name },
       include: {
-        mentions: {
+        Mention: {
           orderBy: { scrapedAt: 'desc' },
         },
       },
@@ -102,7 +124,7 @@ export class InfluencerService {
     logger.info(`Research completed: ${researchResult.mentions.length} mentions found`);
     logger.info(`Breakdown: ${researchResult.mentions.filter(m => m.label === 'drama').length} drama, ${researchResult.mentions.filter(m => m.label === 'good_action').length} good actions, ${researchResult.mentions.filter(m => m.label === 'neutral').length} neutral`);
     
-    // Calculate trust score
+    // Calculate trust score using simple algorithm first (for initial save)
     const scoreResult = scoringService.calculateTrustScore(
       researchResult.mentions.map(m => ({
         sentimentScore: m.sentimentScore,
@@ -111,14 +133,24 @@ export class InfluencerService {
       }))
     );
     
-    logger.info(`Trust score calculated: ${scoreResult.trustScore} (drama: ${scoreResult.dramaCount}, good: ${scoreResult.goodActionCount})`);
+    logger.info(`Initial AI score calculated: ${scoreResult.trustScore} (drama: ${scoreResult.dramaCount}, good: ${scoreResult.goodActionCount})`);
     
-    // Save or update influencer
+    // Save or update influencer with AI score
     const influencer = await this.saveInfluencer(
       name,
       scoreResult,
       researchResult.mentions
     );
+    
+    // Now calculate and update with advanced scoring (AI + Community)
+    try {
+      logger.info(`Calculating advanced score for: ${name}`);
+      await advancedScoringService.updateInfluencerScore(influencer.id);
+      logger.info(`Advanced score updated for: ${name}`);
+    } catch (error) {
+      logger.error(`Failed to calculate advanced score for ${name}:`, error);
+      // Continue with AI-only score if advanced fails
+    }
     
     // Fetch with mentions
     const influencerWithMentions = await this.getInfluencerById(influencer.id);
@@ -174,12 +206,14 @@ export class InfluencerService {
         lastUpdated: new Date(),
       },
       create: {
+        id: randomUUID(),
         name,
         trustScore: scoreResult.trustScore,
         dramaCount: scoreResult.dramaCount,
         goodActionCount: scoreResult.goodActionCount,
         neutralCount: scoreResult.neutralCount,
         avgSentiment: scoreResult.avgSentiment,
+        lastUpdated: new Date(),
       },
     });
     
@@ -192,6 +226,7 @@ export class InfluencerService {
     if (mentions.length > 0) {
       await prisma.mention.createMany({
         data: mentions.map(m => ({
+          id: randomUUID(),
           influencerId: influencer.id,
           source: m.source,
           sourceUrl: m.sourceUrl,
@@ -205,6 +240,7 @@ export class InfluencerService {
     // Save to history
     await prisma.analysisHistory.create({
       data: {
+        id: randomUUID(),
         influencerId: influencer.id,
         trustScore: scoreResult.trustScore,
         dramaCount: scoreResult.dramaCount,

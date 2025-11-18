@@ -18,6 +18,9 @@ export const LeaderboardList: React.FC<LeaderboardListProps> = ({
   const handlePress = (item: any) => {
     if (type === 'influencer') {
       (navigation as any).navigate('Detail', { influencerId: item.id });
+    } else {
+      // Navigate to user profile
+      (navigation as any).navigate('UserProfile', { userId: item.id });
     }
   };
 
@@ -79,7 +82,11 @@ export const LeaderboardList: React.FC<LeaderboardListProps> = ({
   );
 
   const renderUserItem = ({ item }: { item: any }) => (
-    <View style={styles.item}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => handlePress(item)}
+      activeOpacity={0.7}
+    >
       {/* Rank Badge */}
       <View style={styles.rankContainer}>
         {item.badge ? (
@@ -107,14 +114,27 @@ export const LeaderboardList: React.FC<LeaderboardListProps> = ({
         </Text>
         <Text style={styles.niche}>
           {item.totalReports !== undefined ? (
-            `${item.totalReports} reports (🚨${item.dramaReports} ✨${item.positiveReports})`
+            item.dramaReports > 0 && item.positiveReports > 0 ? (
+              `${item.totalReports} verified reports`
+            ) : item.dramaReports > 0 ? (
+              `${item.dramaReports} drama ${item.dramaReports === 1 ? 'report' : 'reports'} 🚨`
+            ) : item.positiveReports > 0 ? (
+              `${item.positiveReports} good ${item.positiveReports === 1 ? 'action' : 'actions'} ✨`
+            ) : (
+              `${item.totalReports} reports`
+            )
           ) : (
             `Level ${item.level} • ${item.experiencePoints || item.activityCount} ${item.experiencePoints ? 'XP' : 'activities'}`
           )}
         </Text>
+        {item.totalReports !== undefined && item.dramaReports > 0 && item.positiveReports > 0 && (
+          <Text style={styles.breakdown}>
+            🚨 {item.dramaReports} drama • ✨ {item.positiveReports} positive
+          </Text>
+        )}
         {item.reputationScore && (
           <Text style={styles.reputation}>
-            Reputation: {item.reputationScore.toFixed(1)}
+            Reputation: {item.reputationScore.toFixed(1)} • Level {item.level}
           </Text>
         )}
       </View>
@@ -123,7 +143,7 @@ export const LeaderboardList: React.FC<LeaderboardListProps> = ({
       <View style={styles.levelBadge}>
         <Text style={styles.levelText}>{item.level || 1}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   if (data.length === 0) {
@@ -241,6 +261,11 @@ const styles = StyleSheet.create({
   reason: {
     fontSize: 11,
     color: '#9ca3af',
+    marginTop: 2,
+  },
+  breakdown: {
+    fontSize: 12,
+    color: '#6b7280',
     marginTop: 2,
   },
   reputation: {

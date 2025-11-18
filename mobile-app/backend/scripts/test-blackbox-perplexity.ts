@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BLACKBOX_API_KEY = 'sk-gsrAXDLWPGMK2i3jKlpTIw';
+const BLACKBOX_API_KEY = 'sk-8OyzCHGCmjs5uft_9NNl1w';
 const BLACKBOX_API_URL = 'https://api.blackbox.ai/v1/chat/completions';
 
 // Test different Perplexity models available through Blackbox

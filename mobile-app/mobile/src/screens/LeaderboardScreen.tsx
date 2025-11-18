@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, RefreshControl, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, StatusBar } from 'react-native';
 import { engagementApi } from '../services/api';
 import { LeaderboardList } from '../components/LeaderboardList';
 import { UserStatsCard } from '../components/UserStatsCard';
 
-type LeaderboardTab = 'top-rated' | 'improved' | 'risk' | 'trending' | 'contributors' | 'users';
+type LeaderboardTab = 'contributors' | 'drama-reporters' | 'positive-reporters' | 'users';
 
 export const LeaderboardScreen: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<LeaderboardTab>('top-rated');
+  const [activeTab, setActiveTab] = useState<LeaderboardTab>('contributors');
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
-  const [period, setPeriod] = useState<'DAILY' | 'WEEKLY' | 'MONTHLY'>('WEEKLY');
+  const [period, setPeriod] = useState<'DAILY' | 'WEEKLY' | 'MONTHLY' | 'ALL_TIME'>('WEEKLY');
 
   useEffect(() => {
     loadLeaderboard();
@@ -22,20 +22,14 @@ export const LeaderboardScreen: React.FC = () => {
       let result: any[] = [];
 
       switch (activeTab) {
-        case 'top-rated':
-          result = await engagementApi.getTopRated(20);
-          break;
-        case 'improved':
-          result = await engagementApi.getMostImproved(period, 20);
-          break;
-        case 'risk':
-          result = await engagementApi.getHighestRisk(period, 20);
-          break;
-        case 'trending':
-          result = await engagementApi.getTrending(20);
-          break;
         case 'contributors':
           result = await engagementApi.getTopContributors(period, 20);
+          break;
+        case 'drama-reporters':
+          result = await engagementApi.getTopDramaReporters(period, 20);
+          break;
+        case 'positive-reporters':
+          result = await engagementApi.getTopPositiveReporters(period, 20);
           break;
         case 'users':
           result = await engagementApi.getActiveUsers(period, 20);
@@ -43,24 +37,23 @@ export const LeaderboardScreen: React.FC = () => {
       }
 
       setData(result);
-    } catch (error) {
-      console.error('Failed to load leaderboard:', error);
+    } catch (error: any) {
+      // Silently handle errors and show empty state
+      console.log('Failed to load leaderboard:', error.message || 'Unknown error');
+      setData([]);
     } finally {
       setLoading(false);
     }
   };
 
   const tabs = [
-    { id: 'top-rated', label: '🥇 Top Rated', type: 'influencer' },
-    { id: 'improved', label: '📈 Improved', type: 'influencer' },
-    { id: 'risk', label: '🚨 Risk', type: 'influencer' },
-    { id: 'trending', label: '🔥 Trending', type: 'influencer' },
-    { id: 'contributors', label: '🏆 Contributors', type: 'user' },
-    { id: 'users', label: '👑 Active', type: 'user' },
+    { id: 'contributors', label: '🏆 All Contributors', type: 'user' },
+    { id: 'drama-reporters', label: '🚨 Drama Reporters', type: 'user' },
+    { id: 'positive-reporters', label: '✨ Good Actions', type: 'user' },
+    { id: 'users', label: '👑 Active Users', type: 'user' },
   ];
 
   const currentTab = tabs.find(t => t.id === activeTab);
-  const showPeriodSelector = ['improved', 'risk', 'contributors', 'users'].includes(activeTab);
 
   return (
     <View style={styles.container}>
@@ -68,72 +61,73 @@ export const LeaderboardScreen: React.FC = () => {
 
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.title}>Leaderboards</Text>
-        <Text style={styles.subtitle}>Top performers & trending</Text>
+        <Text style={styles.title}>Contributors</Text>
+        <Text style={styles.subtitle}>Top community contributors</Text>
       </View>
 
       {/* User Stats Card */}
-      <UserStatsCard />
+      <View style={styles.statsWrapper}>
+        <UserStatsCard />
+      </View>
 
       {/* Tab Navigation */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        style={styles.tabsContainer}
-        contentContainerStyle={styles.tabsContent}
-      >
-        {tabs.map((tab) => (
-          <TouchableOpacity
-            key={tab.id}
-            style={[
-              styles.tab,
-              activeTab === tab.id && styles.tabActive,
-            ]}
-            onPress={() => setActiveTab(tab.id as LeaderboardTab)}
-            activeOpacity={0.7}
-          >
-            <Text style={[
-              styles.tabText,
-              activeTab === tab.id && styles.tabTextActive,
-            ]}>
-              {tab.label}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-
-      {/* Period Selector */}
-      {showPeriodSelector && (
-        <View style={styles.periodContainer}>
-          {(['DAILY', 'WEEKLY', 'MONTHLY'] as const).map((p) => (
+      <View style={styles.tabsWrapper}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.tabsContent}
+        >
+          {tabs.map((tab) => (
             <TouchableOpacity
-              key={p}
+              key={tab.id}
               style={[
-                styles.periodButton,
-                period === p && styles.periodButtonActive,
+                styles.tab,
+                activeTab === tab.id && styles.tabActive,
               ]}
-              onPress={() => setPeriod(p)}
+              onPress={() => setActiveTab(tab.id as LeaderboardTab)}
               activeOpacity={0.7}
             >
               <Text style={[
-                styles.periodText,
-                period === p && styles.periodTextActive,
+                styles.tabText,
+                activeTab === tab.id && styles.tabTextActive,
               ]}>
-                {p.charAt(0) + p.slice(1).toLowerCase()}
+                {tab.label}
               </Text>
             </TouchableOpacity>
           ))}
-        </View>
-      )}
+        </ScrollView>
+      </View>
+
+      {/* Period Selector */}
+      <View style={styles.periodContainer}>
+        {(['DAILY', 'WEEKLY', 'MONTHLY', 'ALL_TIME'] as const).map((p) => (
+          <TouchableOpacity
+            key={p}
+            style={[
+              styles.periodButton,
+              period === p && styles.periodButtonActive,
+            ]}
+            onPress={() => setPeriod(p)}
+            activeOpacity={0.7}
+          >
+            <Text style={[
+              styles.periodText,
+              period === p && styles.periodTextActive,
+            ]}>
+              {p === 'ALL_TIME' ? 'All Time' : p.charAt(0) + p.slice(1).toLowerCase()}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
 
       {/* Leaderboard List */}
       <LeaderboardList
         data={data}
-        type={currentTab?.type as 'influencer' | 'user'}
+        type="user"
         emptyMessage={getEmptyMessage(activeTab)}
       />
 
-      {/* Refresh Control */}
+      {/* Loading Overlay */}
       {loading && (
         <View style={styles.loadingOverlay}>
           <Text style={styles.loadingText}>Loading...</Text>
@@ -145,14 +139,12 @@ export const LeaderboardScreen: React.FC = () => {
 
 const getEmptyMessage = (tab: LeaderboardTab): string => {
   switch (tab) {
-    case 'top-rated':
-      return 'No influencers rated yet';
-    case 'improved':
-      return 'No improvements detected yet';
-    case 'risk':
-      return 'No risks detected yet';
-    case 'trending':
-      return 'No trending influencers yet';
+    case 'contributors':
+      return 'No contributors yet. Start reporting!';
+    case 'drama-reporters':
+      return 'No drama reporters yet. Report controversies!';
+    case 'positive-reporters':
+      return 'No positive reporters yet. Share good actions!';
     case 'users':
       return 'No active users yet';
     default:
@@ -183,14 +175,18 @@ const styles = StyleSheet.create({
     color: '#6b7280',
     marginTop: 2,
   },
-  tabsContainer: {
+  statsWrapper: {
+    backgroundColor: '#fff',
+    paddingBottom: 10,
+  },
+  tabsWrapper: {
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#e5e7eb',
+    paddingVertical: 10,
   },
   tabsContent: {
     paddingHorizontal: 15,
-    paddingVertical: 10,
     gap: 8,
   },
   tab: {

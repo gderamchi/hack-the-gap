@@ -242,4 +242,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     opacity: 0.7,
   },
+  summaryContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+    gap: 8,
+  },
+  summaryCard: {
+    flex: 1,
+    backgroundColor: '#fff',
+    padding: 12,
+    borderRadius: 8,
+    elevation: 1,
+  },
+  summaryLabel: {
+    opacity: 0.7,
+    marginBottom: 4,
+  },
+  summaryValue: {
+    fontWeight: 'bold',
+  },
 });

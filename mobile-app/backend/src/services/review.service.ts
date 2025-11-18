@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { randomUUID } from 'crypto';
 import logger from '../utils/logger';
 
 const prisma = new PrismaClient();
@@ -59,6 +60,7 @@ export class ReviewService {
     // Create review request
     const reviewRequest = await prisma.reviewRequest.create({
       data: {
+        id: randomUUID(),
         influencerId: input.influencerId,
         mentionId: input.mentionId,
         signalId: input.signalId,
@@ -66,6 +68,7 @@ export class ReviewService {
         requestType: input.requestType,
         reason: input.reason,
         evidence: input.evidence ? JSON.stringify(input.evidence) : null,
+        updatedAt: new Date(),
       },
     });
 

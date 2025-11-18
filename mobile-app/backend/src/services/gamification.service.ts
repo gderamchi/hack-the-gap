@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import crypto from 'crypto';
 import logger from '../utils/logger';
 
 const prisma = new PrismaClient();
@@ -86,7 +87,11 @@ export class GamificationService {
 
     if (!stats) {
       stats = await prisma.userEngagementStats.create({
-        data: { userId },
+        data: { 
+          id: crypto.randomUUID(),
+          userId,
+          updatedAt: new Date()
+        },
       });
     }
 
@@ -180,6 +185,7 @@ export class GamificationService {
             // Create new achievement
             const newAchievement = await prisma.userAchievement.create({
               data: {
+                id: crypto.randomUUID(),
                 userId,
                 achievementType: type,
                 achievementLevel: targetLevel,
@@ -247,7 +253,11 @@ export class GamificationService {
 
     if (!stats) {
       stats = await prisma.userEngagementStats.create({
-        data: { userId },
+        data: { 
+          id: crypto.randomUUID(),
+          userId,
+          updatedAt: new Date()
+        },
       });
     }
 
@@ -276,7 +286,7 @@ export class GamificationService {
       ],
       take: limit,
       include: {
-        user: {
+        User: {
           select: {
             id: true,
             firstName: true,
@@ -291,9 +301,9 @@ export class GamificationService {
     return users.map((stats, index) => ({
       rank: index + 1,
       userId: stats.userId,
-      name: `${stats.user.firstName || ''} ${stats.user.lastName || ''}`.trim() || 'Anonymous',
-      avatar: stats.user.avatar,
-      role: stats.user.role,
+      name: `${stats.User.firstName || ''} ${stats.User.lastName || ''}`.trim() || 'Anonymous',
+      avatar: stats.User.avatar,
+      role: stats.User.role,
       level: stats.level,
       experiencePoints: stats.experiencePoints,
       reputationScore: stats.reputationScore,

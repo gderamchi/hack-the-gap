@@ -8,7 +8,7 @@ const supabase = createClient(
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmdmd2anlta2lhaWFzZnJocWloIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MzIyNzgzNiwiZXhwIjoyMDc4ODAzODM2fQ.fbdv6_QijazMiKo79QXDJWsVQVk-oHT9M_tbRzRysRs'
 );
 
-const BLACKBOX_API_KEY = 'sk-gsrAXDLWPGMK2i3jKlpTIw';
+const BLACKBOX_API_KEY = 'sk-8OyzCHGCmjs5uft_9NNl1w';
 const BLACKBOX_API_URL = 'https://api.blackbox.ai/v1/chat/completions';
 const MODEL = 'blackboxai/perplexity/sonar-pro';
 const CONCURRENT_LIMIT = 5; // Process 5 at a time

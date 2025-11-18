@@ -6,6 +6,7 @@ import verificationService from './verification.service';
 import emailService from './email.service';
 import subscriptionService from './subscription.service';
 import duplicateService from './duplicate.service';
+import advancedScoringService from './advanced-scoring.service';
 
 const prisma = new PrismaClient();
 
@@ -94,6 +95,7 @@ export class CommunityService {
       // Create new signal
       signal = await prisma.communitySignal.create({
         data: {
+          id: crypto.randomUUID(),
           userId: input.userId,
           influencerId: input.influencerId,
           type: input.type,
@@ -101,6 +103,7 @@ export class CommunityService {
           comment: input.comment,
           tags: input.tags ? JSON.stringify(input.tags) : null,
           contentHash,
+          updatedAt: new Date(),
         },
       });
       logger.info(`Created signal ${signal.id} by user ${input.userId}`);
@@ -111,12 +114,17 @@ export class CommunityService {
       }
     }
 
-    // For reports, wait for AI verification before returning
+    // For reports, verify asynchronously (don't block the response)
+    // This prevents 400 errors if verification fails
     if (signal.type === 'DRAMA_REPORT' || signal.type === 'POSITIVE_ACTION') {
-      await this.verifySignalSync(signal.id, input.userId);
+      this.verifySignalAsync(signal.id, input.userId).catch(error => {
+        logger.error(`Async verification failed for signal ${signal.id}:`, error);
+      });
     } else {
       // For ratings, verify asynchronously (faster response)
-      this.verifySignalAsync(signal.id, input.userId);
+      this.verifySignalAsync(signal.id, input.userId).catch(error => {
+        logger.error(`Async verification failed for signal ${signal.id}:`, error);
+      });
     }
 
     return signal;
@@ -124,6 +132,7 @@ export class CommunityService {
 
   /**
    * Verify signal synchronously (wait for result)
+   * NOTE: This method should NOT throw errors to prevent blocking signal creation
    */
   private async verifySignalSync(signalId: string, userId: string) {
     try {
@@ -134,17 +143,25 @@ export class CommunityService {
       const signal = await prisma.communitySignal.findUnique({
         where: { id: signalId },
         include: {
-          user: true,
-          influencer: true,
+          User: true,
+          Influencer: true,
         },
       });
 
-      if (!signal) return;
+      if (!signal) {
+        logger.error(`Signal ${signalId} not found for verification`);
+        return;
+      }
+
+      if (!signal.User || !signal.Influencer) {
+        logger.error(`Signal ${signalId} missing User or Influencer relation`);
+        return;
+      }
 
       // Send email notification
       await emailService.sendVerificationResult(
-        signal.user.email,
-        signal.influencer.name,
+        signal.User.email,
+        signal.Influencer.name,
         signal.type,
         result.verified,
         result.reason
@@ -169,11 +186,13 @@ export class CommunityService {
       }
     } catch (error: any) {
       logger.error(`Sync verification failed for signal ${signalId}:`, error);
+      // Don't throw - we don't want to block signal creation
     }
   }
 
   /**
    * Verify signal asynchronously
+   * NOTE: This method should NOT throw errors to prevent blocking signal creation
    */
   private async verifySignalAsync(signalId: string, userId: string) {
     try {
@@ -184,17 +203,25 @@ export class CommunityService {
       const signal = await prisma.communitySignal.findUnique({
         where: { id: signalId },
         include: {
-          user: true,
-          influencer: true,
+          User: true,
+          Influencer: true,
         },
       });
 
-      if (!signal) return;
+      if (!signal) {
+        logger.error(`Signal ${signalId} not found for verification`);
+        return;
+      }
+
+      if (!signal.User || !signal.Influencer) {
+        logger.error(`Signal ${signalId} missing User or Influencer relation`);
+        return;
+      }
 
       // Send email notification
       await emailService.sendVerificationResult(
-        signal.user.email,
-        signal.influencer.name,
+        signal.User.email,
+        signal.Influencer.name,
         signal.type,
         result.verified,
         result.reason
@@ -219,6 +246,7 @@ export class CommunityService {
       }
     } catch (error: any) {
       logger.error(`Async verification failed for signal ${signalId}:`, error);
+      // Don't throw - we don't want to block signal creation
     }
   }
 
@@ -251,7 +279,7 @@ export class CommunityService {
     const signals = await prisma.communitySignal.findMany({
       where,
       include: {
-        user: {
+        User: {
           select: {
             id: true,
             firstName: true,
@@ -327,8 +355,39 @@ export class CommunityService {
 
   /**
    * Recalculate community trust score for an influencer
+   * Now uses the advanced scoring algorithm
    */
   async recalculateTrustScore(influencerId: string) {
+    logger.info(`🔄 Recalculating trust score for influencer ${influencerId} using advanced algorithm`);
+    
+    try {
+      // Use the new advanced scoring service
+      await advancedScoringService.updateInfluencerScore(influencerId);
+      
+      // Get the updated score for logging
+      const influencer = await prisma.influencer.findUnique({
+        where: { id: influencerId },
+      });
+      
+      logger.info(`✅ Trust score updated to ${influencer?.trustScore} using advanced algorithm`);
+      
+      return await prisma.communityTrustScore.findUnique({
+        where: { influencerId },
+      });
+    } catch (error) {
+      logger.error(`❌ Failed to recalculate trust score for ${influencerId}:`, error);
+      
+      // Fallback to simple calculation if advanced fails
+      logger.info(`⚠️  Falling back to simple calculation`);
+      return await this.recalculateTrustScoreSimple(influencerId);
+    }
+  }
+  
+  /**
+   * Simple trust score calculation (fallback)
+   * Kept for backwards compatibility
+   */
+  private async recalculateTrustScoreSimple(influencerId: string) {
     // Get all VERIFIED signals for this influencer
     const signals = await prisma.communitySignal.findMany({
       where: {
@@ -337,7 +396,7 @@ export class CommunityService {
         status: 'VERIFIED', // Only count verified signals
       },
       include: {
-        user: true,
+        User: true,
       },
     });
 
@@ -353,7 +412,7 @@ export class CommunityService {
 
     if (ratings.length > 0) {
       for (const rating of ratings) {
-        const weight = this.getUserReputationWeight(rating.user);
+        const weight = this.getUserReputationWeight(rating.User);
         avgRating += (rating.rating || 0) * weight;
         totalWeight += weight;
       }
@@ -392,6 +451,7 @@ export class CommunityService {
     const trustScore = await prisma.communityTrustScore.upsert({
       where: { influencerId },
       create: {
+        id: crypto.randomUUID(),
         influencerId,
         avgRating,
         totalRatings: ratings.length,
@@ -400,6 +460,7 @@ export class CommunityService {
         totalComments: comments.length,
         communityScore,
         combinedScore,
+        lastUpdated: new Date(),
       },
       update: {
         avgRating,
@@ -516,7 +577,7 @@ export class CommunityService {
     const signals = await prisma.communitySignal.findMany({
       where: { userId },
       include: {
-        influencer: {
+        Influencer: {
           select: {
             id: true,
             name: true,

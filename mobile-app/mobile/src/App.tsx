@@ -13,6 +13,7 @@ import { SignupScreen } from './screens/SignupScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { LeaderboardScreen } from './screens/LeaderboardScreen';
 import { AchievementsScreen } from './screens/AchievementsScreen';
+import { UserProfileScreen } from './screens/UserProfileScreen';
 import { lightTheme } from './constants/theme';
 import { SupabaseAuthProvider } from './contexts/SupabaseAuthContext';
 
@@ -43,6 +44,7 @@ export default function App() {
               <Stack.Screen name="Detail" component={EnhancedDetailScreen} />
               <Stack.Screen name="Search" component={SearchScreen} />
               <Stack.Screen name="Leaderboard" component={LeaderboardScreen} />
+              <Stack.Screen name="UserProfile" component={UserProfileScreen} />
               <Stack.Screen name="Achievements" component={AchievementsScreen} />
               <Stack.Screen name="Login" component={LoginScreen} />
               <Stack.Screen name="Signup" component={SignupScreen} />

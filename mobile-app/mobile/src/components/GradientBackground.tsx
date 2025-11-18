@@ -8,7 +8,7 @@ interface GradientBackgroundProps {
   children?: React.ReactNode;
 }
 
-const GRADIENT_PRESETS = {
+const GRADIENT_PRESETS: Record<string, [string, string]> = {
   dark: [COLORS.gray900, COLORS.black],
   hero: ['rgba(0,0,0,0.8)', 'rgba(0,0,0,0.4)'],
   trustExcellent: [COLORS.trustExcellent, '#059669'],

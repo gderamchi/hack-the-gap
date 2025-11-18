@@ -124,7 +124,7 @@ router.get('/influencers/:id', async (req: Request, res: Response) => {
     const influencer = await prisma.influencer.findUnique({
       where: { id },
       include: {
-        mentions: {
+        Mention: {
           orderBy: { scrapedAt: 'desc' },
           take: 50,
           select: {
@@ -183,7 +183,7 @@ router.get('/influencers/slug/:name', async (req: Request, res: Response) => {
         },
       },
       include: {
-        mentions: {
+        Mention: {
           orderBy: { scrapedAt: 'desc' },
           take: 50,
         },

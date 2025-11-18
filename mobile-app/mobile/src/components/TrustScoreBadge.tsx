@@ -41,11 +41,11 @@ export const TrustScoreBadge: React.FC<TrustScoreBadgeProps> = ({
   const trustColor = getTrustScoreColor(score);
   const trustLabel = getTrustScoreLabel(score);
   
-  const getGradient = (): string[] => {
-    if (score >= 80) return GRADIENTS.trustExcellent;
-    if (score >= 60) return GRADIENTS.trustGood;
-    if (score >= 40) return GRADIENTS.trustNeutral;
-    return GRADIENTS.trustPoor;
+  const getGradient = (): [string, string] => {
+    if (score >= 80) return GRADIENTS.trustExcellent as [string, string];
+    if (score >= 60) return GRADIENTS.trustGood as [string, string];
+    if (score >= 40) return GRADIENTS.trustNeutral as [string, string];
+    return GRADIENTS.trustPoor as [string, string];
   };
   
   const dimensions = {

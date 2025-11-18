@@ -34,12 +34,19 @@ router.post('/signals', authMiddleware, async (req: Request, res: Response) => {
     res.json({
       success: true,
       data: signal,
+      message: 'Report submitted successfully! You will receive an email once it has been verified.',
     });
   } catch (error: any) {
     logger.error('Error creating signal:', error);
-    res.status(400).json({
+    
+    // Return appropriate status code based on error type
+    const statusCode = error.message.includes('limit') || 
+                       error.message.includes('duplicate') ||
+                       error.message.includes('Rating must be') ? 400 : 500;
+    
+    res.status(statusCode).json({
       success: false,
-      error: error.message,
+      error: error.message || 'Failed to submit report',
     });
   }
 });

@@ -542,6 +542,32 @@ export const engagementApi = {
   },
 
   /**
+   * Get top drama reporters (most verified drama reports)
+   */
+  getTopDramaReporters: async (period?: string, limit?: number): Promise<any[]> => {
+    const response = await api.get('/engagement/leaderboard/top-drama-reporters', {
+      params: { period, limit },
+    });
+    if (!response.data.success || !response.data.data) {
+      throw new Error(response.data.error || 'Failed to fetch top drama reporters');
+    }
+    return response.data.data;
+  },
+
+  /**
+   * Get top positive action reporters (most verified positive action reports)
+   */
+  getTopPositiveReporters: async (period?: string, limit?: number): Promise<any[]> => {
+    const response = await api.get('/engagement/leaderboard/top-positive-reporters', {
+      params: { period, limit },
+    });
+    if (!response.data.success || !response.data.data) {
+      throw new Error(response.data.error || 'Failed to fetch top positive reporters');
+    }
+    return response.data.data;
+  },
+
+  /**
    * Get current user's subscription info
    */
   getMySubscription: async (): Promise<any> => {
@@ -559,6 +585,17 @@ export const engagementApi = {
     const response = await api.get('/engagement/pricing');
     if (!response.data.success || !response.data.data) {
       throw new Error(response.data.error || 'Failed to fetch pricing');
+    }
+    return response.data.data;
+  },
+
+  /**
+   * Get user activity details (for user profile)
+   */
+  getUserActivity: async (userId: string): Promise<any> => {
+    const response = await api.get(`/engagement/user-activity/${userId}`);
+    if (!response.data.success || !response.data.data) {
+      throw new Error(response.data.error || 'Failed to fetch user activity');
     }
     return response.data.data;
   },

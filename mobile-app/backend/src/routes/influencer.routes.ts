@@ -73,9 +73,11 @@ router.get('/:id', async (req: Request, res: Response) => {
       });
     }
     
-    // Add trust level and color
+    // Add trust level and color, and transform Mention to mentions for backward compatibility
     const enriched = {
       ...influencer,
+      mentions: influencer.Mention, // Transform Mention to mentions for backward compatibility
+      Mention: undefined, // Remove the capital M version
       trustLevel: scoringService.getTrustLevel(influencer.trustScore),
       trustColor: scoringService.getTrustColor(influencer.trustScore),
     };
@@ -113,9 +115,11 @@ router.post('/search', async (req: Request, res: Response) => {
       forceRefresh === true
     );
     
-    // Add trust level and color
+    // Add trust level and color, and transform Mention to mentions for backward compatibility
     const enriched = {
       ...result.influencer,
+      mentions: result.influencer.Mention, // Transform Mention to mentions for backward compatibility
+      Mention: undefined, // Remove the capital M version
       trustLevel: scoringService.getTrustLevel(result.influencer.trustScore),
       trustColor: scoringService.getTrustColor(result.influencer.trustScore),
     };
@@ -145,9 +149,11 @@ router.post('/:id/refresh', async (req: Request, res: Response) => {
     
     const influencer = await influencerService.refreshInfluencer(id);
     
-    // Add trust level and color
+    // Add trust level and color, and transform Mention to mentions for backward compatibility
     const enriched = {
       ...influencer,
+      mentions: influencer.Mention, // Transform Mention to mentions for backward compatibility
+      Mention: undefined, // Remove the capital M version
       trustLevel: scoringService.getTrustLevel(influencer.trustScore),
       trustColor: scoringService.getTrustColor(influencer.trustScore),
     };

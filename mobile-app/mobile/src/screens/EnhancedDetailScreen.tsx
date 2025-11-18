@@ -56,7 +56,9 @@ export const EnhancedDetailScreen: React.FC<Props> = ({ route, navigation }) => 
   
   const trustColor = getTrustColor(influencer.trustScore);
   const trustLabel = getTrustLabel(influencer.trustScore);
-  const socialHandles = influencer.socialHandles ? JSON.parse(influencer.socialHandles) : {};
+  const socialHandles = typeof influencer.socialHandles === 'string' 
+    ? JSON.parse(influencer.socialHandles) 
+    : influencer.socialHandles || {};
   const userRating = getRating(influencer.id);
   
   return (
@@ -76,7 +78,9 @@ export const EnhancedDetailScreen: React.FC<Props> = ({ route, navigation }) => 
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Profile Card */}
         <View style={styles.profileCard}>
-          <Image source={{ uri: influencer.imageUrl }} style={styles.profileImage} />
+          {influencer.imageUrl && (
+            <Image source={{ uri: influencer.imageUrl }} style={styles.profileImage} />
+          )}
           
           <View style={styles.profileInfo}>
             <Text style={styles.profileName}>{influencer.name}</Text>

@@ -4,8 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList, Mention } from '../types';
 import { influencerApi } from '../services/api';
-// import { CombinedScore } from '../components/CombinedScore';
-// import { SimpleRating } from '../components/SimpleRating';
+import { BeautifulRating } from '../components/BeautifulRating';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
 
@@ -49,7 +48,9 @@ export const CompleteDetailScreen: React.FC<Props> = ({ route, navigation }) => 
   const goodCount = influencer.mentions?.filter((m: Mention) => m.label === 'good_action').length || influencer.goodActionCount || 0;
   const neutralCount = influencer.mentions?.filter((m: Mention) => m.label === 'neutral').length || influencer.neutralCount || 0;
   
-  const socialHandles = influencer.socialHandles ? JSON.parse(influencer.socialHandles) : {};
+  const socialHandles = typeof influencer.socialHandles === 'string' 
+    ? JSON.parse(influencer.socialHandles) 
+    : influencer.socialHandles || {};
   
   return (
     <View style={styles.container}>
@@ -93,8 +94,15 @@ export const CompleteDetailScreen: React.FC<Props> = ({ route, navigation }) => 
           </View>
         )}
         
-        {/* Combined Score */}
-        <CombinedScore influencerId={influencer.id} aiScore={influencer.trustScore} />
+        {/* Trust Score Display */}
+        <View style={styles.scoreSection}>
+          <Text style={styles.sectionTitle}>TRUST SCORE</Text>
+          <View style={[styles.scoreCircle, { borderColor: trustColor }]}>
+            <Text style={[styles.scoreText, { color: trustColor }]}>{Math.round(influencer.trustScore)}</Text>
+            <Text style={styles.scorePercent}>%</Text>
+          </View>
+          <Text style={[styles.scoreLabelText, { color: trustColor }]}>{trustLabel}</Text>
+        </View>
         
         {/* Detailed Stats */}
         <View style={styles.statsSection}>
@@ -140,10 +148,10 @@ export const CompleteDetailScreen: React.FC<Props> = ({ route, navigation }) => 
         </View>
         
         {/* Community Rating */}
-        <SimpleRating
+        <BeautifulRating
           influencerId={influencer.id}
           influencerName={influencer.name}
-          onRatingSubmitted={() => refetch()}
+          onRatingChanged={() => refetch()}
         />
         
         {/* Recent Mentions */}
@@ -293,6 +301,38 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#374151',
     lineHeight: 22,
+  },
+  scoreSection: {
+    padding: 16,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e7eb',
+  },
+  scoreCircle: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    borderWidth: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 12,
+  },
+  scoreText: {
+    fontSize: 42,
+    fontWeight: '900',
+  },
+  scorePercent: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#9ca3af',
+    position: 'absolute',
+    bottom: 30,
+    right: 25,
+  },
+  scoreLabelText: {
+    fontSize: 14,
+    fontWeight: '900',
+    letterSpacing: 1.5,
   },
   statsSection: {
     padding: 16,

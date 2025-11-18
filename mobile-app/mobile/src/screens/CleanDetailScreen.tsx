@@ -36,7 +36,9 @@ export const CleanDetailScreen: React.FC<Props> = ({ route, navigation }) => {
   }
   
   const trustColor = getTrustColor(influencer.trustScore);
-  const socialHandles = influencer.socialHandles ? JSON.parse(influencer.socialHandles) : {};
+  const socialHandles = typeof influencer.socialHandles === 'string' 
+    ? JSON.parse(influencer.socialHandles) 
+    : influencer.socialHandles || {};
   
   return (
     <View style={styles.container}>
@@ -50,7 +52,9 @@ export const CleanDetailScreen: React.FC<Props> = ({ route, navigation }) => {
       <ScrollView style={styles.content}>
         {/* Profile */}
         <View style={styles.profile}>
-          <Image source={{ uri: influencer.imageUrl }} style={styles.profileImage} />
+          {influencer.imageUrl && (
+            <Image source={{ uri: influencer.imageUrl }} style={styles.profileImage} />
+          )}
           <Text style={styles.profileName}>{influencer.name}</Text>
           <Text style={styles.profileNiche}>{influencer.niche}</Text>
           {socialHandles.platform && (

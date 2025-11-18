@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import { randomUUID } from 'crypto';
 import logger from '../utils/logger';
 
 const prisma = new PrismaClient();
@@ -10,7 +11,7 @@ export class TransparencyService {
   async calculateMentionImpact(mentionId: string): Promise<number> {
     const mention = await prisma.mention.findUnique({
       where: { id: mentionId },
-      include: { influencer: true },
+      include: { Influencer: true },
     });
 
     if (!mention) {
@@ -176,6 +177,7 @@ export class TransparencyService {
   }) {
     const log = await prisma.scoreImpactLog.create({
       data: {
+        id: randomUUID(),
         influencerId: data.influencerId,
         eventType: data.eventType,
         eventId: data.eventId,
@@ -203,7 +205,7 @@ export class TransparencyService {
   ) {
     const mention = await prisma.mention.findUnique({
       where: { id: mentionId },
-      include: { influencer: true },
+      include: { Influencer: true },
     });
 
     if (!mention) {
@@ -262,9 +264,9 @@ export class TransparencyService {
       orderBy: { scrapedAt: 'desc' },
       take: options?.limit || 100,
       include: {
-        responses: {
+        InfluencerResponse: {
           include: {
-            influencer: {
+            Influencer: {
               select: {
                 name: true,
                 imageUrl: true,
@@ -284,16 +286,16 @@ export class TransparencyService {
       orderBy: { createdAt: 'desc' },
       take: options?.limit || 100,
       include: {
-        user: {
+        User: {
           select: {
             firstName: true,
             lastName: true,
             role: true,
           },
         },
-        responses: {
+        InfluencerResponse: {
           include: {
-            influencer: {
+            Influencer: {
               select: {
                 name: true,
                 imageUrl: true,
@@ -318,7 +320,7 @@ export class TransparencyService {
         text: m.textExcerpt,
         sentiment: m.sentimentScore,
         isVerified: m.isVerified,
-        responses: m.responses,
+        responses: m.InfluencerResponse,
       })),
       ...communitySignals.map(s => ({
         type: 'COMMUNITY_SIGNAL' as const,
@@ -327,8 +329,8 @@ export class TransparencyService {
         signalType: s.type,
         rating: s.rating,
         comment: s.comment,
-        user: s.user,
-        responses: s.responses,
+        user: s.User,
+        responses: s.InfluencerResponse,
       })),
     ].sort((a, b) => b.date.getTime() - a.date.getTime());
 
