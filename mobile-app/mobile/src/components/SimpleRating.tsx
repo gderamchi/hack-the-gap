@@ -14,17 +14,21 @@ export const SimpleRating: React.FC<SimpleRatingProps> = ({
   influencerName,
   onRatingSubmitted,
 }) => {
-  const { user } = useAuth();
+  const { user, signInAnonymously } = useAuth();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   const handleStarPress = async (star: number) => {
-    // Check if user is authenticated
+    // Auto-login if not authenticated
     if (!user) {
-      Alert.alert('Authentication Required', 'Please sign in to rate influencers');
-      return;
+      try {
+        await signInAnonymously();
+      } catch (error) {
+        Alert.alert('Erreur', 'Impossible de se connecter');
+        return;
+      }
     }
     
     setRating(star);

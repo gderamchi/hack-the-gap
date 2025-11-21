@@ -49,45 +49,64 @@ export const KnowMoreButton: React.FC<KnowMoreButtonProps> = ({
   };
 
   const formatMarkdown = (text: string) => {
-    // Convert markdown to plain text by removing all markdown syntax
-    if (!text) return null;
-    
-    let plainText = text;
-    
-    // Remove markdown syntax
-    plainText = plainText.replace(/\*\*/g, ''); // Remove bold markers
-    plainText = plainText.replace(/\*/g, ''); // Remove italic markers
-    plainText = plainText.replace(/^#{1,6}\s+/gm, ''); // Remove headers
-    plainText = plainText.replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1'); // Remove links, keep text
-    plainText = plainText.replace(/`([^`]+)`/g, '$1'); // Remove code markers
-    plainText = plainText.replace(/^[-*+]\s+/gm, '• '); // Convert list markers to bullets
-    
-    // Split into lines and render as plain text
-    const lines = plainText.split('\n');
+    // Simple markdown formatting for React Native
+    const lines = text.split('\n');
     
     return lines.map((line, index) => {
-      const trimmedLine = line.trim();
-      
-      // Empty line - add spacing
-      if (!trimmedLine) {
-        return <View key={index} style={{ height: 8 }} />;
+      // Headers
+      if (line.startsWith('# ')) {
+        return (
+          <Text key={index} style={styles.h1}>
+            {line.replace('# ', '')}
+          </Text>
+        );
+      }
+      if (line.startsWith('## ')) {
+        return (
+          <Text key={index} style={styles.h2}>
+            {line.replace('## ', '')}
+          </Text>
+        );
+      }
+      if (line.startsWith('### ')) {
+        return (
+          <Text key={index} style={styles.h3}>
+            {line.replace('### ', '')}
+          </Text>
+        );
       }
       
-      // Bullet point
-      if (trimmedLine.startsWith('•')) {
+      // Bold
+      if (line.includes('**')) {
+        const parts = line.split('**');
+        return (
+          <Text key={index} style={styles.paragraph}>
+            {parts.map((part, i) => 
+              i % 2 === 1 ? <Text key={i} style={styles.bold}>{part}</Text> : part
+            )}
+          </Text>
+        );
+      }
+      
+      // Bullet points
+      if (line.trim().startsWith('- ') || line.trim().startsWith('• ')) {
         return (
           <Text key={index} style={styles.bullet}>
-            {trimmedLine}
+            • {line.replace(/^[-•]\s*/, '')}
           </Text>
         );
       }
       
       // Regular paragraph
-      return (
-        <Text key={index} style={styles.paragraph}>
-          {trimmedLine}
-        </Text>
-      );
+      if (line.trim()) {
+        return (
+          <Text key={index} style={styles.paragraph}>
+            {line}
+          </Text>
+        );
+      }
+      
+      return <View key={index} style={{ height: 10 }} />;
     });
   };
 

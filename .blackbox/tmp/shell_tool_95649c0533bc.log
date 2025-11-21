@@ -1,0 +1,446 @@
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+📦 Migrating influencers to Supabase...
+
+Found 438 influencers to migrate
+
+❌ Failed to migrate Squeezie: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cyprien: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Norman: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gotaga: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Michou: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Inoxtag: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Locklear: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Domingo: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lebouseuh: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Doigby: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate EnjoyPhoenix: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sananas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Caroline Receveur: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léna Situations: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emma Verde: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Horia: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Natoo: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Andy Raconte: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Agathe Diary: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Coline: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Amixem: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nota Bene: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dr Nozman: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Poisson Fecond: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dirty Biology: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Science Etonnante: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Micode: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Underscore_: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate McFly et Carlito: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tibo InShape: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Juju Fitcats: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sissy MUA: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lena Mahfouf: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Maeva Ghennam: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Carla Moreau: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Chef Michel Dumas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Herve Cuisine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate FastGoodCuisine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Carlito: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bodytime: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nassim Sahili: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Zerator: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sardoche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Kameto: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Solary: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Maghla: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Joueur du Grenier: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Wankil Studio: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Teeqzy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dooms: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yann-Cj23: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate LeBled’Art: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Siphano: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Étoiles: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate JL Tomy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jeel: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ponce: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Horty: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate LeBled'Art: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Le Bled'Art: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Le Vrai Bouseuh: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Unchained_Off: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Valouzz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Deujna: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hugoposé: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate IbraTV: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mastu: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Batzaïr: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Le Vrai Bouseuuh: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lisa Bpro: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate The Doll Beauty: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Noémie Makeup Touch: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Beauté Active: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Chloé Bleinc: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léa Coffrant: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yanissa: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lucie Rose Blanche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sandrea: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate ElsaMakeup: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Richard Desjardins: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Frenchtouchofmakeup: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lila Bonbon: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nour Benh: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emna: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Rose Lucy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marie Lopez (EnjoyPhoenix): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate The Doll Beauty (Maroua): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Beauteactive (Caroline): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Naturellement Lyla: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Richaard: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gaelle Garcia Diaz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Orane (oranemakeupoff): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Esra (lilyslilah): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate A N G E L I E - H A O U A: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sofia: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tatiana Constantin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alice: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Elsa Makeup: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cristelle Ewa: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Beauteactive: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Orane: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Zineb Nene: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Émeline Cousturian: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Caroline (Beauté Active): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mia Fall (SoCharmante): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Fabian Crfx: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léa Elui: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léna Mahfouf: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marie Lopez: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Paola Locatelli: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mathilde Tantot: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jessica Thivenin Garcia: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anne-Laure Mais: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emma Paris: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Betty Autier: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Leanemarts: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Carla Ginola: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nicole Bernardes: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate L’armoire de Soso: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Shera Kerienski: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Océane: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Justine Gallice: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léna Mahfouf (Léna Situations): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lufy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Chloé B: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lenna Vivas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nathalie Odzierejko (Natoo): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate MademoiselleSoph: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marcel Gracieuse: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jodie la Petite Frenchie: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anne Laure Mais: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Chloé Gervais: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jeanne Damas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jessica Thivenin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Chloë Gervais: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clara Victorya: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marine Leleu: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Karoline Ro: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Fit by Clem: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camillecmp: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Naila Mall: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nicolas Fleck: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lauriane Lamperim: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Juline Allsop: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marine Perez: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Allan Coquin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jonathan Reyzs: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Coach Anais Jazmine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Rémi Ragnar: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Laury Thilleman: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Charles et Mélanie: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate The Lyon Black: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Killian Belliard: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Julie Pujols-Benoit: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Coach Anaïs Jazmine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mustapha Salmi: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bodytime (Alexandre Villani & Pierre-Jean Cabrières): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anaïs Jazmine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clementine Chaillou: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Primus Training: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Karoline.ro: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Pierre-Jean Cabrières: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Norman Thavaud: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mister V: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nicocapone: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Just Riadh: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Pierre Croce: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Maxime Biaggi: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Joyca: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Lellouche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Johan Papz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Paul Duchemin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Melodie Fontaine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nicocapone.comedy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate McFly & Carlito: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alex Fredo: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate JujuFitcats: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Kevin Levy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jojol: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léo Techmaker: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate The iCollection: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nowtech: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate PP World: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate ArtBen: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Romain Lanéry: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Monsieur GRrr: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Brandon Le Proktor: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Steven Lathoud: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léo Duff: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Quentin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anonimal: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nicolas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yassine Sdiri: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Estherium: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate ExplorIA: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ludo Salenne: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Justine Morin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate TheiCollection: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate TechNews&Tests: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Rabbin des bois: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Instanonimal: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jean-Baptiste Nicolet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Millomaker: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Aurélien (Monsieur GRrr): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate JBaptisten: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Johan Lelièvre (Jojol): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Romain Lanéry (TechNews&Tests): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jean-Baptiste Nicolet (The iCollection): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Patrick-Pierre Garcia (PP World): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Estherium (Diane Benhamou): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Diego Alary: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hervé Cuisine: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Michel Dumas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Roro Cuistot: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Whoogy's: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Toscane & Lucas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cédric Grolet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yannick Alléno: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clémence Vaccon (Clem Foodie): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Les Recettes de Juliette: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jean-François Piège: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emeline Bernard: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate La Guinguette d'Angèle: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Céline Laurent (Cooking for my baby): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clarisse Ried: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gracy Barberane: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Kinette Beautyfood: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marie-Caroline Cail: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Roxane (L'atelier de Roxane): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clem Foodie: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jean François Piège: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Céline Laurent: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hélène Darroze: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cedric Grolet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Charles Gilles-Compagnon: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Danny Khezzar: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Carl is Cooking: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate FastGoodCuisine (Charles Gilles-Compagnon): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Roro Cuistot (Aurore Ghigliano): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clem Foodie (Clémentine Vaccon): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate L'atelier de Roxane: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jul: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gims: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ninho: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Werenoi: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate SDM: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Damso: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tiakola: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gazo: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate PLK: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hamza: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate PV Nova: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Waxx: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate French Fuse: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Maskey: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Saturax: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Florent Garcia: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate SCH: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Franck Cotty: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Indila: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate French Baloo: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Céline Dion: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Felckin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Isabeau Delatour: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Amélie Cheval: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cristina Cordula: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lison Sebellin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Safya: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alexandra Guerain: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Cerf: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Noholita: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Audrey Lombard: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mademoiselle Soph: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Manon Laime: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate MV Tiangue: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate L'armoire de Soso: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Highishe: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Callen: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bruno Maltor: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Milles Voyages (Emily Thiers): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Voyages Pirates: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Monsieur Voyage: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille & Amanda (1duvetpour2): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lyly et Jay: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camsou Travel: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Leadorablee (Léa): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yann & Aurélie (Amoureux du Monde): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Meryl Denis Velly: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lily Rose: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ritz Paris: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emma Keitmann: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Vincent Nadal: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate It’s so Paris: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Melbourne._.life: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Diegsalbin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Littlejbeauty (Jeanne): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anaïs (Empreinte Baroudeuse): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate VoyagesPirates: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Leadorablee: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yann et Aurélie - Amoureux du Monde: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marine Etienne & Jerem - Les Expats: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emily Thiers - Millesvoyages: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Amanda & Camille - 1duvetpour2: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nat Geo Travel (natgeotravel): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Itssoparis: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Littlejbeauty: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anaïs - Empreinte Baroudeuse: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marine & Jerem (Les Expats): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Emily Thiers (Millesvoyages): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Amanda & Camille (1duvetpour2): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jean (Voyage Routard): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate e-penser: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate DirtyBiology: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Science étonnante: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Les Revues du Monde: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Balade Mentale: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Cyrus North: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mathilde Study: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sélène de Poche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Lucas Maths: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Un Créatif: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léna Situation: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dimitri Monique: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Scilabus: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Le Monde des Langues: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate La prof Tatiana: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Esteban: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Max Bird: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Doc Seven: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Linguisticae: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dimitri Ferrière: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Yann tout court: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Les Bons Profs: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Micmaths: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Monsieur Phi: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Pilote: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate HugoDécrypte: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léa Bordier: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jérôme Polin Sijabat: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Selene Depoche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Rachel Accurso (Mme Rachel): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Prashant Kirad: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Khánh Vy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dora Moono Nyambe: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Madan Gowri: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Debora Aladim: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Fatos Desconhecidos: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tatiana Cubillos: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Charlie Danger: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Antoine VS Science: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Benjamin Dariouch: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nat Geo France: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Og Josman: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Thom Astro: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Etienne: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ecotalk: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bon Pote: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alexotime: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate DobbyElfe: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Germain O'livry: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bruce Benamran (E-Penser): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Léo Grasset (Dirty Biology): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate David Louapre (Science Étonnante): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Charlie Danger (Les Revues du Monde): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Thomas Pesquet (thom_astro): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alexis André (ALEXOTIME): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Ecotalk (Thomas Martin & Noémie Jolly): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Bloom Association: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Anthony Salsi (Astronophilos): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Espritsciencemetaphysiques: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Dr Océane Sorel (TheFrenchVirologist): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Thomas Pesquet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tibo In Shape: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Marine Leuleu: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Kylian Mbappé: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Séan Garnier: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Margaux Lifestyle: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Kimi-Fit: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Reda / RooKicks: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate The Yoginist: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sonia Tlev: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mathilde Draeger: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alice Bruns: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate La Joggeuse: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate RunnerLife35: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alaïa Hennequin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hem Ton Kiné: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Linda Dremug: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Karoline Rodrigues: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clément Deffrenne: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Pierre | Prof de Maths: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Maxime Painchaud: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tristan Vincent: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Thibault Louis: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Nahel El Hassani: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hugues Trijasse: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Racem Flazi: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate GMK: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Enzo Honoré: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Alexandre Dinomais: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate David Laroche: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Tony Neves: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jonathan Chan: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Sixtine Moullé-Berteaux: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Margaux Klein: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Michael Ferrari: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Charles Sannat: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Harold Gardas: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Clément Vannier: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Laurent Kretz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Paul-Louis Bénard: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Rodolphe Saade: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Laurent Chenot: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Grégory Pairin: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Hugo Bentz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mathieu Nebra: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Romain Caillet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Paul Morlet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mickael Zonta: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Arthur Auboeuf: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Jouneaux: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Christopher Michaut: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Match with Art: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Esther Jolivet: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Inès Possamaï: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Garance Doré: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jordan Molina: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Laurence de Valmy: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Franziska Nazarenus: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Miss Etc: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Mélissa A.R: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Federica Lai: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Amélie: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Gaëlle Garcia Diaz: Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Camille Jouneaux (la.minute.culture): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Christopher Michaut (Mr. Bacchus): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Jordan Molina (TutoDraw): Could not find the table 'public.influencers' in the schema cache
+❌ Failed to migrate Violin Phoenix: Could not find the table 'public.influencers' in the schema cache
+
+🎉 Migration complete!
+✅ Migrated: 0/438 influencers

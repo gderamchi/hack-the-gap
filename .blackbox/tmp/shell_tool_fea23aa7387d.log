@@ -1,0 +1,622 @@
+
+> influencer-trust-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 02:15:27 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:91:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 02:15:27 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 02:27:36 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:92:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 02:27:36 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 02:27:45 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T01:27:45.819Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T01:27:45.820Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T01:27:45.820Z"}
+[INFO] 02:38:50 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:94:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 02:38:50 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 02:38:59 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:95:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 02:39:00 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 02:39:07 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T01:39:08.150Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T01:39:08.151Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T01:39:08.151Z"}
+[INFO] 02:39:17 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T01:39:18.071Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T01:39:18.073Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T01:39:18.073Z"}
+[INFO] 02:39:37 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/gamification.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:95:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 02:39:38 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:30:09 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:95:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:30:11 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:30:21 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:95:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:30:22 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:30:37 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T02:30:38.743Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T02:30:38.761Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T02:30:38.762Z"}
+[INFO] 03:31:05 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T02:31:06.641Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T02:31:06.643Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T02:31:06.644Z"}
+[INFO] 03:31:42 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:95:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:31:44 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:32:26 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:96:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:32:28 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:32:39 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:32:42 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:34:05 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:34:06 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:40:37 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:40:37 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:40:52 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:40:52 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:41:08 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:41:09 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:41:17 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:41:17 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:41:38 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:41:39 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:41:49 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:41:49 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 03:42:09 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts has been modified
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 03:42:09 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:00:28 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T03:00:28.658Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T03:00:28.659Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T03:00:28.659Z"}
+[INFO] 04:00:42 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:00:43 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:00:55 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:00:55 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:03:29 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:03:29 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:03:59 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:03:59 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:04:09 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/middleware/auth.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:04:10 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:10:53 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:10:54 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:11:28 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:11:28 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:11:47 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:11:47 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:28:38 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/user-sync.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:28:39 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:32:18 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:32:19 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:32:48 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:32:49 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:33:11 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:33:13 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:37:30 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:37:31 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:37:52 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:37:53 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:42:48 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T03:42:51.192Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T03:42:51.194Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T03:42:51.194Z"}
+[INFO] 04:43:34 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:43:37 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 04:47:00 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 04:47:03 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:35:10 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:35:11 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:37:24 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/email.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T04:37:25.360Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T04:37:25.361Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T04:37:25.361Z"}
+[INFO] 05:39:33 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:39:34 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:39:53 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:39:54 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:40:12 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/verification.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:40:14 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:43:11 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/user-sync.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:43:12 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 05:43:25 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/user-sync.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 05:43:26 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 13:33:10 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 13:33:11 Error: listen EADDRINUSE: address already in use :::3000
+[INFO] 13:33:38 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+Compilation error in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:33:40 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:36:27 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[ERROR] 13:36:29 ⨯ Unable to compile TypeScript:
+src/services/community.service.ts(242,18): error TS1127: Invalid character.
+src/services/community.service.ts(242,19): error TS1127: Invalid character.
+
+[INFO] 13:37:31 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/community.service.ts has been modified
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1817:16)
+    at listenInCluster (node:net:1865:12)
+    at Server.listen (node:net:1953:7)
+    at Function.listen (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:97:7)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-09198287835925512.js:114:20)
+[ERROR] 13:37:33 Error: listen EADDRINUSE: address already in use :::3000

@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import axios from 'axios';
 
 const prisma = new PrismaClient();
-const BLACKBOX_API_KEY = 'sk-8OyzCHGCmjs5uft_9NNl1w';
+const BLACKBOX_API_KEY = 'sk-gsrAXDLWPGMK2i3jKlpTIw';
 const BLACKBOX_API_URL = 'https://api.blackbox.ai/v1/chat/completions';
 const MODEL = 'blackboxai/perplexity/sonar-pro';
 

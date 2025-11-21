@@ -2,7 +2,8 @@
 export { 
   SupabaseAuthProvider as AuthProvider,
   useSupabaseAuth as useAuth,
-  useSupabaseAuth,
+  useSupabaseAuth as useSupabaseAuth, // Backward compatibility
+  useSupabaseAuth as useSupabaseAuth, // Backward compatibility
   getSupabaseToken as getToken,
 } from './SupabaseAuthContext';
 

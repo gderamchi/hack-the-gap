@@ -166,15 +166,6 @@ router.post('/leaderboard/update-trending', authMiddleware, requireRole(['ADMIN'
 router.get('/my-stats', authMiddleware, async (req: Request, res: Response) => {
   try {
     const user = (req as any).user;
-    
-    // Ensure user exists
-    if (!user || !user.userId) {
-      return res.status(401).json({
-        success: false,
-        error: 'User not authenticated',
-      });
-    }
-
     const stats = await gamificationService.getUserStats(user.userId);
 
     res.json({
@@ -183,31 +174,9 @@ router.get('/my-stats', authMiddleware, async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     logger.error('Error getting user stats:', error);
-    
-    // Return a default stats object instead of erroring
-    // This ensures the frontend always gets valid data
-    res.json({
-      success: true,
-      data: {
-        id: 'default',
-        userId: (req as any).user?.userId || 'unknown',
-        totalRatings: 0,
-        totalReports: 0,
-        totalComments: 0,
-        helpfulVotes: 0,
-        notHelpfulVotes: 0,
-        reputationScore: 50,
-        level: 1,
-        experiencePoints: 0,
-        streak: 0,
-        lastActiveDate: null,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        nextLevelXP: 100,
-        progressToNextLevel: 0,
-        xpNeededForNextLevel: 100,
-        progressPercent: 0,
-      },
+    res.status(500).json({
+      success: false,
+      error: error.message,
     });
   }
 });
@@ -283,56 +252,6 @@ router.get('/leaderboard/top-contributors', async (req: Request, res: Response) 
   }
 });
 
-/**
- * GET /api/engagement/leaderboard/top-drama-reporters
- * Get top drama reporters (most verified drama reports)
- */
-router.get('/leaderboard/top-drama-reporters', async (req: Request, res: Response) => {
-  try {
-    const { period, limit } = req.query;
-    const leaderboard = await leaderboardService.getTopDramaReporters(
-      (period as any) || 'ALL_TIME',
-      limit ? parseInt(limit as string) : 20
-    );
-
-    res.json({
-      success: true,
-      data: leaderboard,
-    });
-  } catch (error: any) {
-    logger.error('Error getting top drama reporters:', error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
-
-/**
- * GET /api/engagement/leaderboard/top-positive-reporters
- * Get top positive action reporters (most verified positive action reports)
- */
-router.get('/leaderboard/top-positive-reporters', async (req: Request, res: Response) => {
-  try {
-    const { period, limit } = req.query;
-    const leaderboard = await leaderboardService.getTopPositiveReporters(
-      (period as any) || 'ALL_TIME',
-      limit ? parseInt(limit as string) : 20
-    );
-
-    res.json({
-      success: true,
-      data: leaderboard,
-    });
-  } catch (error: any) {
-    logger.error('Error getting top positive reporters:', error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
-
 // ============================================
 // SUBSCRIPTION ENDPOINTS
 // ============================================
@@ -373,32 +292,6 @@ router.get('/pricing', async (req: Request, res: Response) => {
     });
   } catch (error: any) {
     logger.error('Error getting pricing:', error);
-    res.status(500).json({
-      success: false,
-      error: error.message,
-    });
-  }
-});
-
-// ============================================
-// USER ACTIVITY ENDPOINTS
-// ============================================
-
-/**
- * GET /api/engagement/user-activity/:userId
- * Get detailed activity for a specific user
- */
-router.get('/user-activity/:userId', async (req: Request, res: Response) => {
-  try {
-    const { userId } = req.params;
-    const activity = await leaderboardService.getUserActivity(userId);
-
-    res.json({
-      success: true,
-      data: activity,
-    });
-  } catch (error: any) {
-    logger.error('Error getting user activity:', error);
     res.status(500).json({
       success: false,
       error: error.message,

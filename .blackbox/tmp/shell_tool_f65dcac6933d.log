@@ -1,0 +1,201 @@
+
+> trustfluencers-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 15:54:21 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+⚠️  Node.js 18 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 20 or later. For more information, visit: https://github.com/orgs/supabase/discussions/37217
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-16T14:54:22.668Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-16T14:54:22.670Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-16T14:54:22.670Z"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T14:54:36.746Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T14:54:49.800Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T14:55:06.922Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T14:55:23.384Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T14:59:28.076Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T14:59:30.436Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/my-stats {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T14:59:30.445Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting top rated: 
+Invalid `prisma.influencer.findMany()` invocation in
+/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49
+
+   8  * Get top rated influencers
+   9  */
+  10 async getTopRated(limit: number = 20) {
+→ 11   const influencers = await prisma.influencer.findMany({
+         orderBy: {
+           trustScore: "desc"
+         },
+         take: 20,
+         select: {
+           id: true,
+           name: true,
+           imageUrl: true,
+           niche: true,
+           trustScore: true,
+           dramaCount: true,
+           goodActionCount: true,
+           lastUpdated: true,
+           communityTrustScore: {
+           ~~~~~~~~~~~~~~~~~~~
+             select: {
+               avgRating: true,
+               totalRatings: true,
+               communityScore: true,
+               combinedScore: true
+             }
+           },
+       ?   summary?: true,
+       ?   socialHandles?: true,
+       ?   neutralCount?: true,
+       ?   avgSentiment?: true,
+       ?   language?: true,
+       ?   createdAt?: true,
+       ?   claimedAt?: true,
+       ?   claimedBy?: true,
+       ?   isClaimed?: true,
+       ?   verificationStatus?: true,
+       ?   AnalysisHistory?: true,
+       ?   ClaimRequest?: true,
+       ?   CommunitySignal?: true,
+       ?   CommunityTrustScore?: true,
+       ?   DeepSearchAnalysis?: true,
+       ?   InfluencerResponse?: true,
+       ?   Mention?: true,
+       ?   _count?: true
+         }
+       })
+
+Unknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?. {"clientVersion":"5.22.0","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.influencer.findMany()` invocation in\n/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49\n\n   8  * Get top rated influencers\n   9  */\n  10 async getTopRated(limit: number = 20) {\n→ 11   const influencers = await prisma.influencer.findMany({\n         orderBy: {\n           trustScore: \"desc\"\n         },\n         take: 20,\n         select: {\n           id: true,\n           name: true,\n           imageUrl: true,\n           niche: true,\n           trustScore: true,\n           dramaCount: true,\n           goodActionCount: true,\n           lastUpdated: true,\n           communityTrustScore: {\n           ~~~~~~~~~~~~~~~~~~~\n             select: {\n               avgRating: true,\n               totalRatings: true,\n               communityScore: true,\n               combinedScore: true\n             }\n           },\n       ?   summary?: true,\n       ?   socialHandles?: true,\n       ?   neutralCount?: true,\n       ?   avgSentiment?: true,\n       ?   language?: true,\n       ?   createdAt?: true,\n       ?   claimedAt?: true,\n       ?   claimedBy?: true,\n       ?   isClaimed?: true,\n       ?   verificationStatus?: true,\n       ?   AnalysisHistory?: true,\n       ?   ClaimRequest?: true,\n       ?   CommunitySignal?: true,\n       ?   CommunityTrustScore?: true,\n       ?   DeepSearchAnalysis?: true,\n       ?   InfluencerResponse?: true,\n       ?   Mention?: true,\n       ?   _count?: true\n         }\n       })\n\nUnknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?.\n    at wn (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getTopRated (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:21:25","timestamp":"2025-11-16T14:59:30.473Z"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T14:59:30.814Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/most-improved {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T14:59:34.525Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting most improved: 
+Invalid `prisma.$queryRaw()` invocation:
+
+
+Raw query failed. Code: `42P01`. Message: `relation "influencer" does not exist` {"clientVersion":"5.22.0","code":"P2010","meta":{"code":"42P01","message":"relation \"influencer\" does not exist"},"name":"PrismaClientKnownRequestError","stack":"PrismaClientKnownRequestError: \nInvalid `prisma.$queryRaw()` invocation:\n\n\nRaw query failed. Code: `42P01`. Message: `relation \"influencer\" does not exist`\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:7315)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getMostImproved (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:48:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:45:25","timestamp":"2025-11-16T14:59:34.682Z"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T14:59:35.319Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting top rated: 
+Invalid `prisma.influencer.findMany()` invocation in
+/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49
+
+   8  * Get top rated influencers
+   9  */
+  10 async getTopRated(limit: number = 20) {
+→ 11   const influencers = await prisma.influencer.findMany({
+         orderBy: {
+           trustScore: "desc"
+         },
+         take: 20,
+         select: {
+           id: true,
+           name: true,
+           imageUrl: true,
+           niche: true,
+           trustScore: true,
+           dramaCount: true,
+           goodActionCount: true,
+           lastUpdated: true,
+           communityTrustScore: {
+           ~~~~~~~~~~~~~~~~~~~
+             select: {
+               avgRating: true,
+               totalRatings: true,
+               communityScore: true,
+               combinedScore: true
+             }
+           },
+       ?   summary?: true,
+       ?   socialHandles?: true,
+       ?   neutralCount?: true,
+       ?   avgSentiment?: true,
+       ?   language?: true,
+       ?   createdAt?: true,
+       ?   claimedAt?: true,
+       ?   claimedBy?: true,
+       ?   isClaimed?: true,
+       ?   verificationStatus?: true,
+       ?   AnalysisHistory?: true,
+       ?   ClaimRequest?: true,
+       ?   CommunitySignal?: true,
+       ?   CommunityTrustScore?: true,
+       ?   DeepSearchAnalysis?: true,
+       ?   InfluencerResponse?: true,
+       ?   Mention?: true,
+       ?   _count?: true
+         }
+       })
+
+Unknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?. {"clientVersion":"5.22.0","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.influencer.findMany()` invocation in\n/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49\n\n   8  * Get top rated influencers\n   9  */\n  10 async getTopRated(limit: number = 20) {\n→ 11   const influencers = await prisma.influencer.findMany({\n         orderBy: {\n           trustScore: \"desc\"\n         },\n         take: 20,\n         select: {\n           id: true,\n           name: true,\n           imageUrl: true,\n           niche: true,\n           trustScore: true,\n           dramaCount: true,\n           goodActionCount: true,\n           lastUpdated: true,\n           communityTrustScore: {\n           ~~~~~~~~~~~~~~~~~~~\n             select: {\n               avgRating: true,\n               totalRatings: true,\n               communityScore: true,\n               combinedScore: true\n             }\n           },\n       ?   summary?: true,\n       ?   socialHandles?: true,\n       ?   neutralCount?: true,\n       ?   avgSentiment?: true,\n       ?   language?: true,\n       ?   createdAt?: true,\n       ?   claimedAt?: true,\n       ?   claimedBy?: true,\n       ?   isClaimed?: true,\n       ?   verificationStatus?: true,\n       ?   AnalysisHistory?: true,\n       ?   ClaimRequest?: true,\n       ?   CommunitySignal?: true,\n       ?   CommunityTrustScore?: true,\n       ?   DeepSearchAnalysis?: true,\n       ?   InfluencerResponse?: true,\n       ?   Mention?: true,\n       ?   _count?: true\n         }\n       })\n\nUnknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?.\n    at wn (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getTopRated (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:21:25","timestamp":"2025-11-16T14:59:35.322Z"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T15:00:08.948Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/my-stats {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T15:00:14.560Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-rated {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-16T15:00:14.563Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[31merror[39m: Error getting top rated: 
+Invalid `prisma.influencer.findMany()` invocation in
+/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49
+
+   8  * Get top rated influencers
+   9  */
+  10 async getTopRated(limit: number = 20) {
+→ 11   const influencers = await prisma.influencer.findMany({
+         orderBy: {
+           trustScore: "desc"
+         },
+         take: 20,
+         select: {
+           id: true,
+           name: true,
+           imageUrl: true,
+           niche: true,
+           trustScore: true,
+           dramaCount: true,
+           goodActionCount: true,
+           lastUpdated: true,
+           communityTrustScore: {
+           ~~~~~~~~~~~~~~~~~~~
+             select: {
+               avgRating: true,
+               totalRatings: true,
+               communityScore: true,
+               combinedScore: true
+             }
+           },
+       ?   summary?: true,
+       ?   socialHandles?: true,
+       ?   neutralCount?: true,
+       ?   avgSentiment?: true,
+       ?   language?: true,
+       ?   createdAt?: true,
+       ?   claimedAt?: true,
+       ?   claimedBy?: true,
+       ?   isClaimed?: true,
+       ?   verificationStatus?: true,
+       ?   AnalysisHistory?: true,
+       ?   ClaimRequest?: true,
+       ?   CommunitySignal?: true,
+       ?   CommunityTrustScore?: true,
+       ?   DeepSearchAnalysis?: true,
+       ?   InfluencerResponse?: true,
+       ?   Mention?: true,
+       ?   _count?: true
+         }
+       })
+
+Unknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?. {"clientVersion":"5.22.0","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.influencer.findMany()` invocation in\n/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:49\n\n   8  * Get top rated influencers\n   9  */\n  10 async getTopRated(limit: number = 20) {\n→ 11   const influencers = await prisma.influencer.findMany({\n         orderBy: {\n           trustScore: \"desc\"\n         },\n         take: 20,\n         select: {\n           id: true,\n           name: true,\n           imageUrl: true,\n           niche: true,\n           trustScore: true,\n           dramaCount: true,\n           goodActionCount: true,\n           lastUpdated: true,\n           communityTrustScore: {\n           ~~~~~~~~~~~~~~~~~~~\n             select: {\n               avgRating: true,\n               totalRatings: true,\n               communityScore: true,\n               combinedScore: true\n             }\n           },\n       ?   summary?: true,\n       ?   socialHandles?: true,\n       ?   neutralCount?: true,\n       ?   avgSentiment?: true,\n       ?   language?: true,\n       ?   createdAt?: true,\n       ?   claimedAt?: true,\n       ?   claimedBy?: true,\n       ?   isClaimed?: true,\n       ?   verificationStatus?: true,\n       ?   AnalysisHistory?: true,\n       ?   ClaimRequest?: true,\n       ?   CommunitySignal?: true,\n       ?   CommunityTrustScore?: true,\n       ?   DeepSearchAnalysis?: true,\n       ?   InfluencerResponse?: true,\n       ?   Mention?: true,\n       ?   _count?: true\n         }\n       })\n\nUnknown field `communityTrustScore` for select statement on model `Influencer`. Available options are marked with ?.\n    at wn (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at LeaderboardService.getTopRated (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/leaderboard.service.ts:11:25)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/engagement.routes.ts:21:25","timestamp":"2025-11-16T15:00:14.792Z"}
+[32minfo[39m: Updated user from Supabase: guiguider31@gmail.com {"timestamp":"2025-11-16T15:00:14.811Z"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T15:01:05.984Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/engagement/leaderboard/top-contributors {"ip":"::1","timestamp":"2025-11-16T15:01:29.103Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:04:32.426Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:04:34.613Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:04:50.173Z","userAgent":"Expo/1017756 CFNetwork/3826.600.41 Darwin/24.6.0"}
+[32minfo[39m: HEAD /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:06:58.930Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:07:11.983Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:07:19.536Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: HEAD /api/health {"ip":"::1","timestamp":"2025-11-16T15:22:48.100Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T15:23:43.129Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/health {"ip":"::1","timestamp":"2025-11-16T15:23:49.778Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:27:37.245Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:27:43.534Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:43:08.630Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:07.816Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:41.388Z","userAgent":"okhttp/4.12.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::1","timestamp":"2025-11-16T15:44:42.204Z","userAgent":"okhttp/4.12.0"}

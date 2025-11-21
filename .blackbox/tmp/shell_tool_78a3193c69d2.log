@@ -1,0 +1,81 @@
+
+> influencer-trust-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 21:22:35 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at Object.nodeDevHook [as .js] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:8:35)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:69:33)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at require.extensions.<computed> (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:71:20)
+    at Object.nodeDevHook [as .ts] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/influencer.service.ts:8:44)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:69:33)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at require.extensions.<computed> (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:71:20)
+    at Object.nodeDevHook [as .ts] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/influencer.routes.ts:7:46)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:69:33)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at require.extensions.<computed> (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:71:20)
+    at Object.nodeDevHook [as .ts] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/server.ts:12:45)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:69:33)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at require.extensions.<computed> (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:71:20)
+    at Object.nodeDevHook [as .ts] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/wrap.js:104:1)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:95:24)
+[ERROR] 21:22:35 Error: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+[INFO] 21:23:21 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+TypeError: pLimit is not a function
+    at new BlackboxService (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:41:20)
+    at Object.<anonymous> (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:256:16)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._compile (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/source-map-support/source-map-support.js:568:25)
+    at Module.m._compile (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:69:33)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at require.extensions.<computed> (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:71:20)
+    at Object.nodeDevHook [as .ts] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+[ERROR] 21:23:21 TypeError: pLimit is not a function
+[INFO] 21:23:29 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T20:23:29.978Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T20:23:29.978Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T20:23:29.978Z"}
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at Object.nodeDevHook [as .js] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:68
+    at async /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:20
+[ERROR] 21:23:30 Error: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+[INFO] 21:23:40 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+Compilation error in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts
+[ERROR] 21:23:40 ⨯ Unable to compile TypeScript:
+src/services/blackbox.service.ts(212,5): error TS1005: ':' expected.
+src/services/blackbox.service.ts(212,6): error TS1005: ')' expected.
+
+[INFO] 21:23:50 Restarting: /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts has been modified
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T20:23:50.240Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T20:23:50.240Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T20:23:50.240Z"}
+Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.
+    at require.extensions..jsx.require.extensions..js (/private/var/folders/1z/jlh723cx58nbj81d9h354s3h0000gn/T/ts-node-dev-hook-05621623002431453.js:114:20)
+    at Object.nodeDevHook [as .js] (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/ts-node-dev/lib/hook.js:63:13)
+    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:68
+    at async /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts:46:20
+[ERROR] 21:23:50 Error: require() of ES Module /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/p-limit/index.js from /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts not supported.
+Instead change the require of index.js in /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/services/blackbox.service.ts to a dynamic import() which is available in all CommonJS modules.

@@ -1,0 +1,82 @@
+
+> influencer-trust-backend@1.0.0 dev
+> ts-node-dev --respawn --transpile-only src/server.ts
+
+[INFO] 22:09:19 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+[32minfo[39m: 🚀 Server running on port 3000 {"timestamp":"2025-11-15T21:09:20.032Z"}
+[32minfo[39m: 📊 Environment: development {"timestamp":"2025-11-15T21:09:20.033Z"}
+[32minfo[39m: 🔗 Health check: http://localhost:3000/api/health {"timestamp":"2025-11-15T21:09:20.033Z"}
+[32minfo[39m: GET /api/public/stats {"ip":"::1","timestamp":"2025-11-15T21:09:24.572Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/public/influencers {"ip":"::1","timestamp":"2025-11-15T21:11:45.821Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/public/search {"ip":"::1","timestamp":"2025-11-15T21:11:57.399Z","userAgent":"curl/8.7.1"}
+[31merror[39m: Error searching influencers: 
+Invalid `prisma.influencer.findMany()` invocation in
+/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/public.routes.ts:332:49
+
+  329   });
+  330 }
+  331 
+→ 332 const influencers = await prisma.influencer.findMany({
+        where: {
+          name: {
+            contains: "squeezie",
+            mode: "insensitive",
+            ~~~~
+      ?     equals?: String | StringFieldRefInput,
+      ?     in?: String[],
+      ?     notIn?: String[],
+      ?     lt?: String | StringFieldRefInput,
+      ?     lte?: String | StringFieldRefInput,
+      ?     gt?: String | StringFieldRefInput,
+      ?     gte?: String | StringFieldRefInput,
+      ?     startsWith?: String | StringFieldRefInput,
+      ?     endsWith?: String | StringFieldRefInput,
+      ?     not?: String | NestedStringFilter
+          }
+        },
+        orderBy: {
+          trustScore: "desc"
+        },
+        take: 10,
+        select: {
+          id: true,
+          name: true,
+          imageUrl: true,
+          niche: true,
+          trustScore: true
+        }
+      })
+
+Unknown argument `mode`. Did you mean `lte`? Available options are marked with ?. {"clientVersion":"5.22.0","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.influencer.findMany()` invocation in\n/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/public.routes.ts:332:49\n\n  329   });\n  330 }\n  331 \n→ 332 const influencers = await prisma.influencer.findMany({\n        where: {\n          name: {\n            contains: \"squeezie\",\n            mode: \"insensitive\",\n            ~~~~\n      ?     equals?: String | StringFieldRefInput,\n      ?     in?: String[],\n      ?     notIn?: String[],\n      ?     lt?: String | StringFieldRefInput,\n      ?     lte?: String | StringFieldRefInput,\n      ?     gt?: String | StringFieldRefInput,\n      ?     gte?: String | StringFieldRefInput,\n      ?     startsWith?: String | StringFieldRefInput,\n      ?     endsWith?: String | StringFieldRefInput,\n      ?     not?: String | NestedStringFilter\n          }\n        },\n        orderBy: {\n          trustScore: \"desc\"\n        },\n        take: 10,\n        select: {\n          id: true,\n          name: true,\n          imageUrl: true,\n          niche: true,\n          trustScore: true\n        }\n      })\n\nUnknown argument `mode`. Did you mean `lte`? Available options are marked with ?.\n    at wn (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at $n.handleRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6958)\n    at $n.handleAndLogRequestError (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6623)\n    at $n.request (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:121:6307)\n    at l (/Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/node_modules/@prisma/client/runtime/library.js:130:9633)\n    at /Users/guillaume_deramchi/Documents/hack-the-gap/mobile-app/backend/src/routes/public.routes.ts:332:25","timestamp":"2025-11-15T21:11:57.408Z"}
+[32minfo[39m: GET /api/public/niches {"ip":"::1","timestamp":"2025-11-15T21:11:57.417Z","userAgent":"curl/8.7.1"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:22:58.328Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/b28916df-6b94-4c15-a6f9-da2c44ba05cb {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:23:34.722Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:27:15.962Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:27:50.009Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:27:55.307Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:35:06.544Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:35:41.556Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:35:42.517Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:35:42.912Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/7d5b25f7-65f4-47d0-83c6-26690b6e3f60 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:37:22.345Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:38:02.202Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:39.904Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:41.169Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:42.512Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:42.764Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:43.379Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:47.960Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:48.278Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:48.383Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:48.573Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/dc4d8b98-b08b-46ca-b6fe-8d1b49d8d73c {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:39:56.272Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:43:37.979Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/20bce73e-884f-49a9-8129-709e10885e3c {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:43:48.444Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/2486571c-5589-4bb8-af56-20be2416b01e {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:43:51.632Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/6f9998ba-3a25-42e1-9c89-a64c6fd2ec33 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:44:27.295Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers/6f9998ba-3a25-42e1-9c89-a64c6fd2ec33 {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:49:48.637Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:53:10.679Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:53:41.783Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:53:42.943Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/influencers {"ip":"::ffff:10.80.222.54","timestamp":"2025-11-15T21:55:18.915Z","userAgent":"Expo/1017756 CFNetwork/3860.300.31 Darwin/25.2.0"}
+[32minfo[39m: GET /api/public/niches {"ip":"::ffff:10.81.90.121","timestamp":"2025-11-15T22:03:25.772Z","userAgent":"curl/8.7.1"}

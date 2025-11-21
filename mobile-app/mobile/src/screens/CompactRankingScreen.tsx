@@ -6,7 +6,7 @@ import { RootStackParamList, Influencer } from '../types';
 import { influencerApi } from '../services/api';
 import { CompactInfluencerRow } from '../components/CompactInfluencerRow';
 import { PillFilters } from '../components/PillFilters';
-import { COLORS, SPACING, TYPOGRAPHY, BORDER_RADIUS } from '../constants/designSystem';
+import { COLORS, SPACING, TYPOGRAPHY } from '../constants/designSystem';
 import { Animated } from 'react-native';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Ranking'>;

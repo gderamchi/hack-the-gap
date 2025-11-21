@@ -27,11 +27,8 @@ export const UserStatsCard: React.FC<UserStatsCardProps> = ({ onViewAchievements
       setLoading(true);
       const data = await engagementApi.getMyStats();
       setStats(data);
-    } catch (error: any) {
-      // Silently handle errors - user might not be properly authenticated
-      // or stats might not exist yet. This is normal for new users.
-      console.log('Stats not available:', error.message || 'Unknown error');
-      setStats(null);
+    } catch (error) {
+      console.error('Failed to load stats:', error);
     } finally {
       setLoading(false);
     }
@@ -54,12 +51,7 @@ export const UserStatsCard: React.FC<UserStatsCardProps> = ({ onViewAchievements
   }
 
   if (!stats) {
-    // Stats failed to load or don't exist yet - show a friendly message
-    return (
-      <View style={styles.container}>
-        <Text style={styles.emptyMessage}>Start rating influencers to earn XP and unlock achievements! 🎯</Text>
-      </View>
-    );
+    return null;
   }
 
   return (
@@ -129,13 +121,6 @@ const styles = StyleSheet.create({
     color: '#6b7280',
     textAlign: 'center',
     paddingVertical: 20,
-  },
-  emptyMessage: {
-    fontSize: 14,
-    color: '#6b7280',
-    textAlign: 'center',
-    paddingVertical: 20,
-    paddingHorizontal: 20,
   },
   levelBadge: {
     alignSelf: 'center',

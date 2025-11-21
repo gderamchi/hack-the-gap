@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import { randomUUID } from 'crypto';
 import logger from '../utils/logger';
 import claimService from './claim.service';
 
@@ -52,17 +51,15 @@ export class ResponseService {
     // Create response
     const response = await prisma.influencerResponse.create({
       data: {
-        id: randomUUID(),
         influencerId: input.influencerId,
         mentionId: input.mentionId,
         signalId: input.signalId,
         responseType: input.responseType,
         responseText: input.responseText,
         evidenceUrls: input.evidenceUrls ? JSON.stringify(input.evidenceUrls) : null,
-        updatedAt: new Date(),
       },
       include: {
-        Influencer: {
+        influencer: {
           select: {
             name: true,
             imageUrl: true,
@@ -101,14 +98,14 @@ export class ResponseService {
     const responses = await prisma.influencerResponse.findMany({
       where,
       include: {
-        Influencer: {
+        influencer: {
           select: {
             name: true,
             imageUrl: true,
             verificationStatus: true,
           },
         },
-        ResponseVote: true,
+        votes: true,
       },
       orderBy: { createdAt: 'desc' },
     });
@@ -147,7 +144,6 @@ export class ResponseService {
       // Create new vote
       await prisma.responseVote.create({
         data: {
-          id: randomUUID(),
           responseId,
           userId,
           isHelpful,
@@ -204,7 +200,7 @@ export class ResponseService {
   async deleteResponse(responseId: string, userId: string) {
     const response = await prisma.influencerResponse.findUnique({
       where: { id: responseId },
-      include: { Influencer: true },
+      include: { influencer: true },
     });
 
     if (!response) {

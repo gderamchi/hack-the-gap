@@ -1,8 +1,6 @@
 export interface Influencer {
   id: string;
   name: string;
-  imageUrl?: string;
-  summary?: string;
   socialHandles?: {
     twitter?: string;
     instagram?: string;
@@ -18,10 +16,6 @@ export interface Influencer {
   language: string;
   lastUpdated: string;
   createdAt: string;
-  isClaimed?: boolean;
-  claimedBy?: string;
-  claimedAt?: string;
-  verificationStatus?: string;
   trustLevel?: string;
   trustColor?: string;
   rank?: number; // Ranking position
@@ -40,7 +34,6 @@ export interface Mention {
 
 export interface InfluencerWithMentions extends Influencer {
   mentions: Mention[];
-  Mention?: Mention[]; // For Prisma compatibility
 }
 
 export interface ApiResponse<T> {
@@ -60,9 +53,6 @@ export type RootStackParamList = {
   Ranking: undefined;
   Detail: { influencerId: string };
   Search: undefined;
-  Leaderboard: undefined;
-  UserProfile: { userId: string };
-  Achievements: undefined;
   Login: undefined;
   Signup: undefined;
   Profile: undefined;

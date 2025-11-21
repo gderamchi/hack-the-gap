@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-import crypto from 'crypto';
 import logger from '../utils/logger';
 
 const prisma = new PrismaClient();
@@ -47,23 +46,21 @@ export class ClaimService {
     // Create claim request
     const claimRequest = await prisma.claimRequest.create({
       data: {
-        id: crypto.randomUUID(),
         userId: input.userId,
         influencerId: input.influencerId,
         proofType: input.proofType,
         proofUrl: input.proofUrl,
         proofText: input.proofText,
-        updatedAt: new Date(),
       },
       include: {
-        User: {
+        user: {
           select: {
             email: true,
             firstName: true,
             lastName: true,
           },
         },
-        Influencer: {
+        influencer: {
           select: {
             name: true,
             imageUrl: true,
@@ -94,7 +91,7 @@ export class ClaimService {
     const claimRequests = await prisma.claimRequest.findMany({
       where,
       include: {
-        User: {
+        user: {
           select: {
             id: true,
             email: true,
@@ -102,7 +99,7 @@ export class ClaimService {
             lastName: true,
           },
         },
-        Influencer: {
+        influencer: {
           select: {
             id: true,
             name: true,
@@ -126,7 +123,7 @@ export class ClaimService {
     const claimRequests = await prisma.claimRequest.findMany({
       where: { userId },
       include: {
-        Influencer: {
+        influencer: {
           select: {
             id: true,
             name: true,
@@ -152,7 +149,7 @@ export class ClaimService {
   ) {
     const claimRequest = await prisma.claimRequest.findUnique({
       where: { id: claimRequestId },
-      include: { Influencer: true },
+      include: { influencer: true },
     });
 
     if (!claimRequest) {

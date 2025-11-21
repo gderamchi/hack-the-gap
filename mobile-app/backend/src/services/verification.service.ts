@@ -16,8 +16,8 @@ export class VerificationService {
     const signal = await prisma.communitySignal.findUnique({
       where: { id: signalId },
       include: {
-        Influencer: true,
-        User: true,
+        influencer: true,
+        user: true,
       },
     });
 
@@ -43,10 +43,7 @@ export class VerificationService {
 
       // Use AI verification for all drama/positive reports
       if (!BLACKBOX_API_KEY) {
-        logger.error('AI verification required but API key not configured');
-        // Auto-reject if AI is not configured
-        await this.rejectSignal(signalId, 'AI verification unavailable - please contact support');
-        return { verified: false, reason: 'AI verification unavailable' };
+        throw new Error('AI verification required but API key not configured');
       }
 
       const verificationPrompt = this.buildVerificationPrompt(signal);
@@ -113,7 +110,7 @@ export class VerificationService {
    * Build verification prompt for AI
    */
   private buildVerificationPrompt(signal: any): string {
-    const influencerName = signal.Influencer.name;
+    const influencerName = signal.influencer.name;
     const signalType = signal.type;
     const comment = signal.comment || '';
     const rating = signal.rating;
@@ -347,14 +344,14 @@ Respond ONLY with valid JSON.`;
         status: 'PENDING',
       },
       include: {
-        Influencer: {
+        influencer: {
           select: {
             id: true,
             name: true,
             niche: true,
           },
         },
-        User: {
+        user: {
           select: {
             id: true,
             email: true,
@@ -385,8 +382,8 @@ Respond ONLY with valid JSON.`;
         results.push({
           signalId: signal.id,
           userId: signal.userId,
-          userEmail: signal.User.email,
-          influencerName: signal.Influencer.name,
+          userEmail: signal.user.email,
+          influencerName: signal.influencer.name,
           type: signal.type,
           ...result,
         });
